@@ -6,12 +6,17 @@ public class BPMMove : MonoBehaviour
 {
     // Start is called before the first frame update
     public float coef; //bpm ¨ •ª‘¬‚ÌŒW”
+    public bool display_speed;
     private float speed;
 
     void Start()
     {
         float bpm = GetComponent<BPMSoundPlayer>().bpm;
         speed = coef * bpm / 60; //•b‘¬‚É•ÏŠ·
+        if (display_speed)
+        {
+            Debug.Log("speed(m/•b)="+speed);
+        }
         speed *= 0.2f;  //0.2•b‘¬‚É•ÏŠ·
     }
 
