@@ -25,9 +25,18 @@ public class GameManager : MonoBehaviour
         //経過時間が繰り返す間隔を経過したら
         if (_timeElapsed >= _repeatSpan)
         {
-            float rnd = Random.Range(-2.0f,2.0f);
-            //ここで処理を実行
-            Instantiate(obj, new Vector3(rnd, 0.5f, 5.0f), Quaternion.identity);
+            // 0:正面,1:左,2:右
+            int direction = Random.Range(0,3);
+            if(direction==0){
+                float position = Random.Range(-2.0f,2.0f);
+                Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.identity);
+            }else if(direction==1){
+                float position = Random.Range(-4.0f,-2.0f);
+                Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.Euler(0f, -30f, 0f));
+            }else if(direction==2){
+                float position = Random.Range(2.0f,4.0f);
+                Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.Euler(0f, 30f, 0f));
+            }
 
             _timeElapsed = 0;   //経過時間をリセットする
         }
