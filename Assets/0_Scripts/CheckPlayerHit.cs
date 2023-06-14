@@ -9,11 +9,12 @@ public class CheckPlayerHit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        img = GameObject.Find("Image").GetComponent<Image> ();
-		img.color = Color.clear;
+        img = GameObject.Find("Red").GetComponent<Image>();
+        img.color = Color.clear;
     }
 
-    public static IEnumerator Vibrate(float duration = 0.1f, float frequency = 0.1f, float amplitude = 0.1f, OVRInput.Controller controller = OVRInput.Controller.Active) {
+    public static IEnumerator Vibrate(float duration = 0.1f, float frequency = 0.1f, float amplitude = 0.1f, OVRInput.Controller controller = OVRInput.Controller.Active)
+    {
         Debug.Log("test");
         //コントローラーを振動させる
         OVRInput.SetControllerVibration(frequency, amplitude, controller);
@@ -30,19 +31,20 @@ public class CheckPlayerHit : MonoBehaviour
     {
         float player_x = transform.parent.gameObject.transform.position.x;
         float enemy_x = other.gameObject.transform.position.x;
-        if(enemy_x<player_x){
-            StartCoroutine(Vibrate(duration:0.5f, controller:OVRInput.Controller.LTouch));
+        if (enemy_x < player_x)
+        {
+            StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.LTouch));
         }
-        if(enemy_x>=player_x){
-            StartCoroutine(Vibrate(duration:0.5f, controller:OVRInput.Controller.RTouch));
+        if (enemy_x >= player_x)
+        {
+            StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.RTouch));
         }
-        this.img.color = new Color (0.8f, 0f, 0f, 0.5f);
-        Debug.Log("hit");
-        Debug.Log(other.gameObject.name);
+        this.img.color = new Color(0.8f, 0f, 0f, 0.5f);
+        FindObjectOfType<ScoreScript>().ReducePoint();
     }
-	void Update () 
-	{
-        this.img.color = Color.Lerp (this.img.color, Color.clear, Time.deltaTime);
-	}
+    void Update()
+    {
+        this.img.color = Color.Lerp(this.img.color, Color.clear, Time.deltaTime);
+    }
 
 }
