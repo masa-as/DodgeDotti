@@ -12,7 +12,7 @@ public class BPMSoundPlayer : MonoBehaviour
 
     private void Start()
     {
-        if (bpm >= 0){
+        if (bpm > 0){
             beatInterval = 60.0f / bpm; // 秒単位変換
             StartCoroutine(PlayBeat()); // コルーチン実行
         }
