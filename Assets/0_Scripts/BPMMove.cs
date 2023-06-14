@@ -17,7 +17,7 @@ public class BPMMove : MonoBehaviour
         {
             Debug.Log("speed(m/•b)="+speed);
         }
-        speed *= 0.2f;  //0.2•b‘¬‚É•ÏŠ·
+        speed *= 0.02f;  //0.02•b‘¬‚É•ÏŠ·
     }
 
     // Update is called once per frame
