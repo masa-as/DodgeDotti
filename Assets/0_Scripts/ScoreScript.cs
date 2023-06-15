@@ -14,7 +14,13 @@ public class ScoreScript : MonoBehaviour
     }
     public void ReducePoint()
     {
-        score = score - 1;
+        score = score - 5;
         GetComponent<Text>().text = "Score:" + score.ToString();
     }
+    public void AddPoint(int point)
+    {
+        score = score + point;
+        GetComponent<Text>().text = "Score:" + score.ToString();
+    }
+
 }

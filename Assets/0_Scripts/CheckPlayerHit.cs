@@ -15,7 +15,6 @@ public class CheckPlayerHit : MonoBehaviour
 
     public static IEnumerator Vibrate(float duration = 0.1f, float frequency = 0.1f, float amplitude = 0.1f, OVRInput.Controller controller = OVRInput.Controller.Active)
     {
-        Debug.Log("test");
         //コントローラーを振動させる
         OVRInput.SetControllerVibration(frequency, amplitude, controller);
 
@@ -29,18 +28,36 @@ public class CheckPlayerHit : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        float player_x = transform.parent.gameObject.transform.position.x;
-        float enemy_x = other.gameObject.transform.position.x;
-        if (enemy_x < player_x)
+        // 通行人と衝突したときの処理
+        if (other.gameObject.tag == "Passerby")
         {
-            StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.LTouch));
+            float player_x = transform.parent.gameObject.transform.position.x;
+            float enemy_x = other.gameObject.transform.position.x;
+            if (enemy_x < player_x)
+            {
+                StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.LTouch));
+            }
+            if (enemy_x >= player_x)
+            {
+                StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.RTouch));
+            }
+            this.img.color = new Color(0.8f, 0f, 0f, 0.5f);
+            FindObjectOfType<ScoreScript>().ReducePoint();
         }
-        if (enemy_x >= player_x)
+        // Perfectなタイミングで避けたとき
+        else if (other.gameObject.tag == "Perfect")
         {
-            StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.RTouch));
+            Debug.Log("Perfect");
+            // TODO:演出を入れる
+            FindObjectOfType<ScoreScript>().AddPoint(3);
         }
-        this.img.color = new Color(0.8f, 0f, 0f, 0.5f);
-        FindObjectOfType<ScoreScript>().ReducePoint();
+        else if (other.gameObject.tag == "Good")
+        {
+            Debug.Log("Good");
+            // TODO:演出を入れる
+            FindObjectOfType<ScoreScript>().AddPoint(1);
+        }
+
     }
     void Update()
     {
