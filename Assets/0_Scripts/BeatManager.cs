@@ -27,7 +27,7 @@ public class BeatManager : MonoBehaviour
     private void Awake()
     {
         beat_interval = 60.0f / bpm;  // 秒単位変換
-        note_interval = beat_interval / ((float)note / 4.0f); // 秒単位変換
+        note_interval = beat_interval / ((float)note / 4.0f); // ノーツのタイミング生成
     }
 
     private void Start()
