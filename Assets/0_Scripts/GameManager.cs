@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     private float _repeatSpan;    //繰り返す間隔
     private float _timeElapsed;   //経過時間
     private float _offset;
-    private float z = 5.0f; //ノーツ開始のz座標
-    private float degree = 30f; //斜めノーツの方向
+    private float _z = 5.0f; //ノーツ開始のz座標
+    private float _degree = 30f; //斜めノーツの方向
     private List<float> speedList;
     [SerializeField] private float baseNoteSpeed = 0.08f;//ノーツ速度
     public GameObject SoundSystem;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         // Cubeプレハブを元に、インスタンスを生成、
         // Instantiate(obj, new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
         _repeatSpan = SoundSystem.GetComponent<BeatManager>().note_interval;  //実行間隔を設定
-        _offset = z / baseNoteSpeed * 0.02f;
+        _offset = _z / baseNoteSpeed * 0.02f;
         _timeElapsed = -_offset;   //開始時間を調整
         speedList = CreateSpeedList();
     }
@@ -53,11 +53,9 @@ public class GameManager : MonoBehaviour
     }
     private List<float> CreateSpeedList()
     {
-        float radians = degree * Mathf.PI / 180.0f;
+        float radians = _degree * Mathf.PI / 180.0f;
         float cos = Mathf.Cos(radians);
-        float dist = z / cos; //斜め方向の移動距離
-        float time = z / baseNoteSpeed;  //ベースの移動時間
-        return new List<float> { baseNoteSpeed, dist / time, dist / time };
+        return new List<float> { baseNoteSpeed, baseNoteSpeed / cos, baseNoteSpeed / cos};
     }
 
 }
