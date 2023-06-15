@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     GameObject obj;
     private float _repeatSpan;    //繰り返す間隔
     private float _timeElapsed;   //経過時間
+    public GameObject SoundSystem;
 
 
     void Start()
@@ -14,11 +15,11 @@ public class GameManager : MonoBehaviour
         obj = (GameObject)Resources.Load("Passerby");
         // Cubeプレハブを元に、インスタンスを生成、
         // Instantiate(obj, new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
-        _repeatSpan = 1;    //実行間隔を設定
+        _repeatSpan = SoundSystem.GetComponent<BeatManager>().note_interval;  //実行間隔を設定
         _timeElapsed = 0;   //経過時間をリセット
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _timeElapsed += Time.deltaTime;     //時間をカウントする
 
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
                 Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.Euler(0f, 30f, 0f));
             }
 
-            _timeElapsed = 0;   //経過時間をリセットする
+            _timeElapsed -= _repeatSpan;   //経過時間を減らす
         }
     }
 }
