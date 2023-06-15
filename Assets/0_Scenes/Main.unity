@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f953e392e6f3e4f8df2ee99afb2295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseNoteSpeed: 0.15
   SoundSystem: {fileID: 1027562725}
 --- !u!4 &121467739
 Transform:
