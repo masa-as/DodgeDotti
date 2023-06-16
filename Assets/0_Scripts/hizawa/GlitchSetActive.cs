@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlitchEffects : MonoBehaviour
+public class ScriptSetActive: MonoBehaviour
 {
     //public GameObject beam;
     //OVRGrabbable grabbable;
@@ -25,7 +25,7 @@ public class GlitchEffects : MonoBehaviour
             if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) || OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
             {
             Debug.Log("trigger");
-            //GetComponent<ShaderEffect_CorruptedVram>().enabled = true;
+            GetComponent<PostEffect>().enabled = true;
         }
         //}
     }
