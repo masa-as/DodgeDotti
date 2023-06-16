@@ -7,16 +7,22 @@ public class GameManager : MonoBehaviour
     GameObject obj;
     private float _repeatSpan;    //繰り返す間隔
     private float _timeElapsed;   //経過時間
+    private float _offset;
+    private float _z = 5.0f; //ノーツ開始のz座標
+    private float _degree = 30f; //斜めノーツの方向
+    private List<float> speedList;
+    [SerializeField] private float baseNoteSpeed = 0.08f;//ノーツ速度
     public GameObject SoundSystem;
-
 
     void Start()
     {
         obj = (GameObject)Resources.Load("Passerby");
         // Cubeプレハブを元に、インスタンスを生成、
         // Instantiate(obj, new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
-        _repeatSpan = SoundSystem.GetComponent<BeatManager>().note_interval;  //実行間隔を設定
-        _timeElapsed = 0;   //経過時間をリセット
+        _repeatSpan = SoundSystem.GetComponent<BeatManager>().note2interval[SoundSystem.GetComponent<BeatManager>().note];  //実行間隔を設定
+        _offset = _z / baseNoteSpeed * 0.02f;
+        _timeElapsed = -_offset;   //開始時間を調整
+        speedList = CreateSpeedList();
     }
 
     private void FixedUpdate()
@@ -30,16 +36,27 @@ public class GameManager : MonoBehaviour
             int direction = Random.Range(0,3);
             if(direction==0){
                 float position = Random.Range(-2.0f,2.0f);
+                obj.GetComponent<SlideMusicBox>().speed = speedList[0];
                 Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.identity);
             }else if(direction==1){
                 float position = Random.Range(-4.0f,-2.0f);
+                obj.GetComponent<SlideMusicBox>().speed = speedList[1];
                 Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.Euler(0f, -30f, 0f));
             }else if(direction==2){
                 float position = Random.Range(2.0f,4.0f);
+                obj.GetComponent<SlideMusicBox>().speed = speedList[2];
                 Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.Euler(0f, 30f, 0f));
             }
 
             _timeElapsed -= _repeatSpan;   //経過時間を減らす
+            _repeatSpan = SoundSystem.GetComponent<BeatManager>().note2interval[SoundSystem.GetComponent<BeatManager>().note];
         }
     }
+    private List<float> CreateSpeedList()
+    {
+        float radians = _degree * Mathf.PI / 180.0f;
+        float cos = Mathf.Cos(radians);
+        return new List<float> { baseNoteSpeed, baseNoteSpeed / cos, baseNoteSpeed / cos};
+    }
+
 }

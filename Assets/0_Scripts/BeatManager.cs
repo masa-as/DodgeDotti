@@ -19,15 +19,18 @@ public class BeatManager : MonoBehaviour
     public Note note;
 
     public float bpm;
-    public float note_interval;
     private bool play_beat = true;  //確認用
     private float beat_interval;
     private float beat_timer;
+    public Dictionary<Note, float> note2interval = new Dictionary<Note, float>();
 
     private void Awake()
     {
         beat_interval = 60.0f / bpm;  // 秒単位変換
-        note_interval = beat_interval / ((float)note / 4.0f); // ノーツのタイミング生成
+        foreach (Note _note in System.Enum.GetValues(typeof(Note)))
+        {
+            note2interval[_note] = beat_interval / ((float)_note / 4.0f);
+        }
     }
 
     private void Start()
