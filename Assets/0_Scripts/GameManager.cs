@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         obj = (GameObject)Resources.Load("Passerby");
         // Cubeプレハブを元に、インスタンスを生成、
         // Instantiate(obj, new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
-        _repeatSpan = SoundSystem.GetComponent<BeatManager>().note_interval;  //実行間隔を設定
+        _repeatSpan = SoundSystem.GetComponent<BeatManager>().note2interval[SoundSystem.GetComponent<BeatManager>().note];  //実行間隔を設定
         _offset = _z / baseNoteSpeed * 0.02f;
         _timeElapsed = -_offset;   //開始時間を調整
         speedList = CreateSpeedList();
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
             }
 
             _timeElapsed -= _repeatSpan;   //経過時間を減らす
+            _repeatSpan = SoundSystem.GetComponent<BeatManager>().note2interval[SoundSystem.GetComponent<BeatManager>().note];
         }
     }
     private List<float> CreateSpeedList()
