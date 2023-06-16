@@ -4,7 +4,8 @@ Shader "Unlit/Myshader"
     {
         [NoScaleOffSet]_MainTex ("Texture", 2D) = "white" {}
         _FrameRate ("FrameRate", Range(0.1,30)) = 15
-        _Frequency ("Frequency", Range(0,1)) = 0.1
+        _Frequency ("Frequency", Range(0,1)) = 0.5
+
     }
     SubShader
     {
