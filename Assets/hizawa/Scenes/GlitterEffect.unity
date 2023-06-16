@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2686890238580842728, guid: 7856c197eb4c77840878eba92e1c48b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -3.74
       objectReference: {fileID: 0}
     - target: {fileID: 2686890238580842728, guid: 7856c197eb4c77840878eba92e1c48b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -479,7 +479,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -2.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -501,7 +501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1082151922047985052, guid: f86ad3a738102aa43a3ef2bce0e9a311, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4031110001655665870, guid: f86ad3a738102aa43a3ef2bce0e9a311, type: 3}
       propertyPath: m_RootOrder
@@ -673,6 +673,10 @@ PrefabInstance:
     - target: {fileID: 1082151922047985052, guid: 7c9a23176e90bb14d9f83749223e796e, type: 3}
       propertyPath: m_Name
       value: GoodEffects
+      objectReference: {fileID: 0}
+    - target: {fileID: 1082151922047985052, guid: 7c9a23176e90bb14d9f83749223e796e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4031110001655665870, guid: 7c9a23176e90bb14d9f83749223e796e, type: 3}
       propertyPath: m_RootOrder
