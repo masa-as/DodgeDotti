@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918363ccbde8ef942893248162da0c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.08
+  speed: 0.01
 --- !u!1 &6181230095150930416
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 7096632190294408070}
   - component: {fileID: 7138643107626598433}
   - component: {fileID: 1209366065631773715}
+  - component: {fileID: 8833335702518594418}
   m_Layer: 0
   m_Name: Perfect
   m_TagString: Perfect
@@ -346,3 +347,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8833335702518594418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181230095150930416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a522b45bcc415a4483027a9bf8a1516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
