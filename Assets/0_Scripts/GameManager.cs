@@ -16,10 +16,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        obj = (GameObject)Resources.Load("Passerby");
         // Cubeプレハブを元に、インスタンスを生成、
         // Instantiate(obj, new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity);
-        _repeatSpan = SoundSystem.GetComponent<BeatManager>().note_interval;  //実行間隔を設定
+        _repeatSpan = SoundSystem.GetComponent<BeatManager>().note2interval[SoundSystem.GetComponent<BeatManager>().note];  //実行間隔を設定
         _offset = _z / baseNoteSpeed * 0.02f;
         _timeElapsed = -_offset;   //開始時間を調整
         speedList = CreateSpeedList();
@@ -32,23 +31,41 @@ public class GameManager : MonoBehaviour
         //経過時間が繰り返す間隔を経過したら
         if (_timeElapsed >= _repeatSpan)
         {
+            int model = Random.Range(0, 4);
+            if (model == 0)
+            {
+                obj = (GameObject)Resources.Load("Female1_Mono");
+            }
+            else if (model == 1)
+            {
+                obj = (GameObject)Resources.Load("Male1_Mono");
+            }
+            else if (model == 2)
+            {
+                obj = (GameObject)Resources.Load("Male2_Mono");
+            }
+            else if (model == 3)
+            {
+                obj = (GameObject)Resources.Load("Male3_Mono");
+            }
             // 0:正面,1:左,2:右
             int direction = Random.Range(0,3);
             if(direction==0){
                 float position = Random.Range(-2.0f,2.0f);
                 obj.GetComponent<SlideMusicBox>().speed = speedList[0];
-                Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.identity);
+                Instantiate(obj, new Vector3(position, 0f, 5.0f), Quaternion.Euler(0f, 180f, 0f));
             }else if(direction==1){
                 float position = Random.Range(-4.0f,-2.0f);
                 obj.GetComponent<SlideMusicBox>().speed = speedList[1];
-                Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.Euler(0f, -30f, 0f));
+                Instantiate(obj, new Vector3(position, 0f, 5.0f), Quaternion.Euler(0f, 150f, 0f));
             }else if(direction==2){
                 float position = Random.Range(2.0f,4.0f);
                 obj.GetComponent<SlideMusicBox>().speed = speedList[2];
-                Instantiate(obj, new Vector3(position, 0.5f, 5.0f), Quaternion.Euler(0f, 30f, 0f));
+                Instantiate(obj, new Vector3(position, 0f, 5.0f), Quaternion.Euler(0f, 210f, 0f));
             }
 
             _timeElapsed -= _repeatSpan;   //経過時間を減らす
+            _repeatSpan = SoundSystem.GetComponent<BeatManager>().note2interval[SoundSystem.GetComponent<BeatManager>().note];
         }
     }
     private List<float> CreateSpeedList()
