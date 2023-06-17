@@ -36,17 +36,18 @@ public class GameManager : MonoBehaviour
         if (_timeElapsed >= _repeatSpan)
         {
             // int rnd_pos = Random.Range(0, 4);
-            int rnd_pos = 0;
+            int rnd_pos = Random.Range(0, 2);
+            // int rnd_pos = 0;
             Vector3 playerTransform = Player.transform.position;
             playerTransform.y = 0.0f;
             if (rnd_pos == 0)
             {
                 playerTransform.x += test_pos;
             }
-            // else if (rnd_pos == 1)
-            // {
-            //     playerTransform.x += 1.0f;
-            // }
+            else if (rnd_pos == 1)
+            {
+                playerTransform.x -= test_pos;
+            }
             // else if (rnd_pos == 2)
             // {
             //     playerTransform.x -= 0.5f;
