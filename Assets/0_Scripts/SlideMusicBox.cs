@@ -10,7 +10,7 @@ public class SlideMusicBox : MonoBehaviour
     void FixedUpdate()
     {
 
-        transform.Translate(0, 0, -speed);
+        transform.Translate(0, 0, speed);
         
     }
 }
