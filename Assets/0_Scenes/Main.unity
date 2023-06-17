@@ -154,8 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseNoteSpeed: 0.08
   SoundSystem: {fileID: 1027562725}
-  Player: {fileID: 0}
-  test_pos: 0.7
 --- !u!4 &121467739
 Transform:
   m_ObjectHideFlags: 0

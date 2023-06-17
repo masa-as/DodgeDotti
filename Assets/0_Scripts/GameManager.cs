@@ -13,9 +13,8 @@ public class GameManager : MonoBehaviour
     private List<float> speedList;
     [SerializeField] private float baseNoteSpeed = 0.08f;//ノーツ速度
     public GameObject SoundSystem;
-    public GameObject Player;
-
-    [SerializeField] public float test_pos = 0.5f;
+    private GameObject Player;
+    private Vector3 playerTransform;
 
     void Start()
     {
@@ -35,44 +34,43 @@ public class GameManager : MonoBehaviour
         //経過時間が繰り返す間隔を経過したら
         if (_timeElapsed >= _repeatSpan)
         {
-            // int rnd_pos = Random.Range(0, 4);
-            int rnd_pos = Random.Range(0, 2);
-            // int rnd_pos = 0;
-            Vector3 playerTransform = Player.transform.position;
+            int rnd_pos = Random.Range(0, 4);
+            playerTransform = Player.transform.position;
             playerTransform.y = 0.0f;
             if (rnd_pos == 0)
             {
-                playerTransform.x += test_pos;
+                playerTransform.x += 0.4f;
             }
             else if (rnd_pos == 1)
             {
-                playerTransform.x -= test_pos;
+                playerTransform.x -= 0.4f;
             }
-            // else if (rnd_pos == 2)
-            // {
-            //     playerTransform.x -= 0.5f;
-            // }
-            // else if (rnd_pos == 3)
-            // {
-            //     playerTransform.x -= 1.0f;
-            // }
-            int rnd_model = Random.Range(0, 4);
+            else if (rnd_pos == 2)
+            {
+                playerTransform.x += 0.6f;
+            }
+            else if (rnd_pos == 3)
+            {
+                playerTransform.x -= 0.6f;
+            }
+            // int rnd_model = Random.Range(0, 4);
+            int rnd_model = 0;
             if (rnd_model == 0)
             {
                 obj = (GameObject)Resources.Load("Female1_Mono");
             }
-            else if (rnd_model == 1)
-            {
-                obj = (GameObject)Resources.Load("Male1_Mono");
-            }
-            else if (rnd_model == 2)
-            {
-                obj = (GameObject)Resources.Load("Male2_Mono");
-            }
-            else if (rnd_model == 3)
-            {
-                obj = (GameObject)Resources.Load("Male3_Mono");
-            }
+            // else if (rnd_model == 1)
+            // {
+            //     obj = (GameObject)Resources.Load("Male1_Mono");
+            // }
+            // else if (rnd_model == 2)
+            // {
+            //     obj = (GameObject)Resources.Load("Male2_Mono");
+            // }
+            // else if (rnd_model == 3)
+            // {
+            //     obj = (GameObject)Resources.Load("Male3_Mono");
+            // }
             // 0:正面,1:左,2:右
             // int direction = Random.Range(0, 3);
             int direction = 0;
