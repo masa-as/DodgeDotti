@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeColorMaterial : MonoBehaviour
+public class TransformEffect : MonoBehaviour
 {
 
     // Use this for initialization
@@ -11,18 +11,21 @@ public class ChangeColorMaterial : MonoBehaviour
     {
 
     }
-    public GameObject _particlePref;
+    public GameObject _particlePref1;
     // 生成したエフェクト保持
-    private GameObject _particleObj;
+    private GameObject _particleObj1;
+
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            _particleObj = Instantiate(_particlePref);
+            _particleObj1 = Instantiate(_particlePref1);
             // エフェクトの位置を自分と同じ位置にする
-            _particleObj.transform.position = transform.position;
+            _particleObj1.transform.position = transform.position;
+
+            
         }
     }
 

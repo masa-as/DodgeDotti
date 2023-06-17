@@ -283,7 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681da16736ccba44f83979ee697425ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particlePref: {fileID: 4622043714800396952, guid: 82fa93e1d3feb764bb71c4b07cb7f52a, type: 3}
+  _particlePref1: {fileID: 0}
+  _particlePref2: {fileID: 0}
 --- !u!1 &371598396 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6762333477608495770, guid: e26aea3d017eda54e803915cf9b5ff5f, type: 3}
@@ -325,7 +326,6 @@ MonoBehaviour:
   materials1:
   - {fileID: 2100000, guid: 5348597f863187f4ba4c4dc554b4f551, type: 2}
   - {fileID: 2100000, guid: a9e3643a981facb43ac639b7aa74d238, type: 2}
-  materials2: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,10 +836,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Male 3_Mono
       objectReference: {fileID: 0}
+    - target: {fileID: 2202470007488896358, guid: e26aea3d017eda54e803915cf9b5ff5f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4139356182223670308, guid: e26aea3d017eda54e803915cf9b5ff5f, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 75d3a58b3d7879f41926561701407a48, type: 2}
+    - target: {fileID: 6125860586036582745, guid: e26aea3d017eda54e803915cf9b5ff5f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8761751634836950750, guid: e26aea3d017eda54e803915cf9b5ff5f, type: 3}
@@ -960,7 +968,6 @@ MonoBehaviour:
   materials1:
   - {fileID: 2100000, guid: 4527efad0593d2f47bf356d216668d10, type: 2}
   - {fileID: 2100000, guid: dd7b2618aa2a1b247891c940902bac12, type: 2}
-  materials2: []
 --- !u!114 &1936213774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,7 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681da16736ccba44f83979ee697425ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particlePref: {fileID: 4622043714800396952, guid: 82fa93e1d3feb764bb71c4b07cb7f52a, type: 3}
+  _particlePref1: {fileID: 4622043714800396952, guid: 82fa93e1d3feb764bb71c4b07cb7f52a, type: 3}
+  _particlePref2: {fileID: 1082151922047985052, guid: f86ad3a738102aa43a3ef2bce0e9a311, type: 3}
 --- !u!1 &2020321034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6125860586036582745, guid: e26aea3d017eda54e803915cf9b5ff5f, type: 3}
@@ -994,4 +1002,3 @@ MonoBehaviour:
   materials1:
   - {fileID: 2100000, guid: dd7b2618aa2a1b247891c940902bac12, type: 2}
   - {fileID: 2100000, guid: a9e3643a981facb43ac639b7aa74d238, type: 2}
-  materials2: []

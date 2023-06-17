@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class MaterialsTest : MonoBehaviour
 {
-    SkinnedMeshRenderer MeshRenderer;
-    bool changeMat = false;
-    [SerializeField] Material[] materials1;
-    [SerializeField] Material[] materials2;
+    SkinnedMeshRenderer meshRenderer;
+    bool changeMat = true; // ‰Šú’l‚ğ true ‚Éİ’è
 
+    [SerializeField] Material[] materials1;
 
     // Start is called before the first frame update
     void Start()
     {
-        MeshRenderer = GetComponent<SkinnedMeshRenderer>();
+        meshRenderer = GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && changeMat) // changeMat ‚ª true ‚Ìê‡‚É‚Ì‚İØ‚è‘Ö‚¦‚é
         {
-            changeMat = !changeMat;
-            MeshRenderer.materials = changeMat ? materials2 : materials1;
-
+            changeMat = false;
+            meshRenderer.materials = materials1; // materials1 ‚ğ“K—p
         }
     }
 }
