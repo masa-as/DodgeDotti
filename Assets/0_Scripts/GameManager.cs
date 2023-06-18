@@ -53,24 +53,25 @@ public class GameManager : MonoBehaviour
             {
                 playerTransform.x -= 0.6f;
             }
-            // int rnd_model = Random.Range(0, 4);
-            int rnd_model = 0;
+
+            int rnd_model = Random.Range(0, 4);
             if (rnd_model == 0)
             {
                 obj = (GameObject)Resources.Load("Female1_Mono");
             }
-            // else if (rnd_model == 1)
-            // {
-            //     obj = (GameObject)Resources.Load("Male1_Mono");
-            // }
-            // else if (rnd_model == 2)
-            // {
-            //     obj = (GameObject)Resources.Load("Male2_Mono");
-            // }
-            // else if (rnd_model == 3)
-            // {
-            //     obj = (GameObject)Resources.Load("Male3_Mono");
-            // }
+            else if (rnd_model == 1)
+            {
+                obj = (GameObject)Resources.Load("Male1_Mono");
+            }
+            else if (rnd_model == 2)
+            {
+                obj = (GameObject)Resources.Load("Male2_Mono");
+            }
+            else if (rnd_model == 3)
+            {
+                obj = (GameObject)Resources.Load("Male3_Mono");
+            }
+
             // 0:正面,1:左,2:右
             // int direction = Random.Range(0, 3);
             int direction = 0;
