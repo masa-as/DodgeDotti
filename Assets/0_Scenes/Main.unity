@@ -912,7 +912,7 @@ MonoBehaviour:
   audioSource: {fileID: 1027562727}
   beatclip: {fileID: 8300000, guid: 9c8ffb8d247fa8f46b33cdd22b61d63b, type: 3}
   note: 2
-  bpm: 150
+  bpm: 30
 --- !u!82 &1027562727
 AudioSource:
   m_ObjectHideFlags: 0
