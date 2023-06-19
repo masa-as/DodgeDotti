@@ -1542,6 +1542,7 @@ GameObject:
   - component: {fileID: 3069023847676580180}
   - component: {fileID: -9193341179339559718}
   - component: {fileID: 4736300137125743073}
+  - component: {fileID: 5767735940803790830}
   m_Layer: 0
   m_Name: Female1_Mono
   m_TagString: Passerby
@@ -1614,6 +1615,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b033748daa84c647b52efa06bad5a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &5767735940803790830
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691240425420007714}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7948684821813998573
 GameObject:
   m_ObjectHideFlags: 0
