@@ -9,13 +9,16 @@ public class ForegroundMove : MonoBehaviour
     public bool display_speed;
     private float speed;
 
+    private GameObject soundSystem;
+
     void Start()
     {
-        float bpm = GetComponent<BeatManager>().bpm;
+        soundSystem = GameObject.Find("SoundSystem");
+        float bpm = soundSystem.GetComponent<BeatManager>().bpm;
         speed = coef * bpm / 60; //•b‘¬‚É•ÏŠ·
         if (display_speed)
         {
-            Debug.Log("speed(m/•b)="+speed);
+            Debug.Log("speed(m/•b)=" + speed);
         }
         speed *= 0.02f;  //0.02•b‘¬‚É•ÏŠ·
     }
@@ -23,6 +26,10 @@ public class ForegroundMove : MonoBehaviour
     // Update is called once per frame(0.02sec)
     void FixedUpdate()
     {
+        if (display_speed)
+        {
+            Debug.Log("speed(m/•b)=" + speed);
+        }
         Transform myTransform = this.transform;
         Vector3 pos = myTransform.position;
         pos.z -= speed;
