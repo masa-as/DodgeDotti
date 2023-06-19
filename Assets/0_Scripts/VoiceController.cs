@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
 
 public class VoiceController : MonoBehaviour
 {
@@ -9,9 +10,16 @@ public class VoiceController : MonoBehaviour
     private AudioClip m_AudioClip;
     private int m_LastAudioPos;
     private float m_AudioLevel;
+    private GameObject Player;
 
-    [SerializeField] private GameObject m_Cube;
+    private GameObject m_cube_right;
+
+    private GameObject m_cube_left;
+    private Vector3 playerTransform;
+
+
     [SerializeField, Range(10, 300)] private float m_AmpGain = 200;
+    float tmp = 0;
 
     void Start()
     {
@@ -28,6 +36,10 @@ public class VoiceController : MonoBehaviour
 
         Debug.Log($"=== Device Set: {targetDevice} ===");
         m_AudioClip = Microphone.Start(targetDevice, true, 10, 48000);
+        m_cube_left = (GameObject)Resources.Load("VoiceScaleLeft");
+        m_cube_right = (GameObject)Resources.Load("VoiceScaleRight");
+        Player = GameObject.Find("CenterEyeAnchor");
+
     }
 
     void Update()
@@ -36,7 +48,19 @@ public class VoiceController : MonoBehaviour
         if (waveData.Length == 0) return;
 
         m_AudioLevel = waveData.Average(Mathf.Abs);
-        m_Cube.transform.localScale = new Vector3(1, 0.01f + m_AmpGain * m_AudioLevel, 1);
+
+        // TODO:リリース前に||は&&に変える
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        {
+            // o.oo5は超えてほしい
+            if (0.005 < m_AudioLevel)
+            {
+                playerTransform = Player.transform.position;
+                playerTransform.z += 1f;
+                Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 0, 90f));
+                Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, 0, 90f));
+            }
+        }
     }
 
     private float[] GetUpdatedAudio()
