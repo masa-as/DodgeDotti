@@ -6,7 +6,7 @@ public class BeatManager : MonoBehaviour
 {
 
     public AudioSource audioSource;
-    public AudioClip beatclip;
+    // public AudioClip beatclip;
     public enum Note
     {
         //‘S‰¹•„, 2•ª‰¹•„, ..., 16•ª‰¹•„
@@ -39,17 +39,17 @@ public class BeatManager : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {   
+    {
         beat_timer += Time.fixedDeltaTime;
 
         if (beat_timer >= beat_interval)
         {
             beat_timer -= beat_interval;
-            if (play_beat)
-            {
-                audioSource.PlayOneShot(beatclip);
-            }
-            
+            // if (play_beat)
+            // {
+            //     audioSource.PlayOneShot(beatclip);
+            // }
+
         }
     }
 
