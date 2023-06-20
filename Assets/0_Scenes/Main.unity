@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 367184197}
   - component: {fileID: 367184198}
+  - component: {fileID: 367184199}
   m_Layer: 0
   m_Name: MobGenerator
   m_TagString: Untagged
@@ -275,6 +276,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd238397a81188f429fe1bb7007e0b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mob_list: []
+--- !u!114 &367184199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367184196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb94860346345344a68eab7c1ad2f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mob_list: []
@@ -902,7 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coef: 1.5
-  display_speed: 1
+  display_speed: 0
 --- !u!1 &1009470813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1027562727}
-  note: 8
+  note: 2
   bpm: 126
 --- !u!82 &1027562727
 AudioSource:

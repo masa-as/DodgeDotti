@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class MobGenerator : MonoBehaviour
+public class MobStandGenerator : MonoBehaviour
 {
     private float _repeatSpan = 2;    //繰り返す間隔
     private float _timeElapsed;   //経過時間
@@ -16,7 +16,7 @@ public class MobGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        read_img(3);
+        read_img(5);
     }
 
     //リソースから表示させたい画像を指定した個数だけ読み込む関数
@@ -25,7 +25,7 @@ public class MobGenerator : MonoBehaviour
         GameObject tmp;
         for (int i = 1; i < n + 1; i++)
         {
-            tmp = (GameObject)Resources.Load("Mobs/Female" + i);
+            tmp = (GameObject)Resources.Load("MobStand/Female" + i);
             mob_list.Add(tmp);
         }
     }
