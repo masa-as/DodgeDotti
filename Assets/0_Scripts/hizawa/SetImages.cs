@@ -9,7 +9,7 @@ public class SetImage : MonoBehaviour
 {
 
     public Image image;
-    //public Sprite [] SourceImages;
+    public int Score;
     public Sprite [] sprites;
 
 
@@ -22,12 +22,26 @@ public class SetImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Z ƒL[‚ª‰Ÿ‚³‚ê‚½
-        if (Input.GetKeyDown(KeyCode.Z))
+        // score‚Åê‡‚í‚¯
+        if (Score <= 200)
         {
-            //sprite = Resources.Load<Sprite>();
             image = this.GetComponent<Image>();
             image.sprite = sprites[0];
+        }
+        else if(Score <= 400)
+        {
+            image = this.GetComponent<Image>();
+            image.sprite = sprites[1];
+        }
+        else if (Score <= 800)
+        {
+            image = this.GetComponent<Image>();
+            image.sprite = sprites[2];
+        }
+        else
+        {
+            image = this.GetComponent<Image>();
+            image.sprite = sprites[3];
         }
     }
 }
