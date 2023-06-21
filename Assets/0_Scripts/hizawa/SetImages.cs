@@ -9,7 +9,8 @@ public class SetImage : MonoBehaviour
 {
 
     public Image image;
-    private Sprite sprite;
+    //public Sprite [] SourceImages;
+    public Sprite sprite;
 
 
     // Use this for initialization
@@ -24,7 +25,7 @@ public class SetImage : MonoBehaviour
         // Z ƒL[‚ª‰Ÿ‚³‚ê‚½
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            sprite = Resources.Load<Sprite>("bag2");
+            //sprite = Resources.Load<Sprite>();
             image = this.GetComponent<Image>();
             image.sprite = sprite;
         }
