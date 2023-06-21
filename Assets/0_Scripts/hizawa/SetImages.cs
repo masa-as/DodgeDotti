@@ -10,7 +10,7 @@ public class SetImage : MonoBehaviour
 
     public Image image;
     //public Sprite [] SourceImages;
-    public Sprite sprite;
+    public Sprite [] sprites;
 
 
     // Use this for initialization
@@ -27,7 +27,7 @@ public class SetImage : MonoBehaviour
         {
             //sprite = Resources.Load<Sprite>();
             image = this.GetComponent<Image>();
-            image.sprite = sprite;
+            image.sprite = sprites[0];
         }
     }
 }

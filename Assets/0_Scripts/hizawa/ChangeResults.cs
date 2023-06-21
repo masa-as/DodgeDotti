@@ -31,10 +31,7 @@ public class ChangeResults: MonoBehaviour
 
     ListHandler listHandler = new ListHandler();
 
-    //
-    public Image images;
-    public Sprite sprites;
-    //
+
 
     void Start()
     {
@@ -52,12 +49,6 @@ public class ChangeResults: MonoBehaviour
     }
 
 
-    void SetImages()
-    {
-        images = GetComponent<Image>();
-        images.sprite = sprites;
-    }
-
     IEnumerator Pop() // 人を出現させる
     {
         float WaitTime = displayTime / PeopleList.Count; // WaitTimeの計算。方針はdisplayTimeでちょうどPeopleListの要素数が出現する。
@@ -73,9 +64,7 @@ public class ChangeResults: MonoBehaviour
                 GameObject ob = Instantiate(listHandler.GetRandomElement(LowestModelList), Person.transform.position, rotationToOrigin);//一番点数低い人を出現させる。
                 LowestModels.Add(ob);//あとで一括変更するので、リストに格納しとく。
 
-                //
-                SetImages();
-                //
+               
 
             }
             else if (cur_score <= (float)MidHighScoreChangePoint)// 次点の切り替えポイントになるまで
