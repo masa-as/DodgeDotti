@@ -74,7 +74,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1506655728260455801}
   - component: {fileID: 4091587318798414167}
-  - component: {fileID: 6295071102854562682}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -123,23 +122,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6295071102854562682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752467888974092127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 434ffb3fa74676e488dd711558e4f8e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 1457150442143222181}
-  pants: {fileID: 8928908477365318064}
-  torso: {fileID: 2726402341483376325}
-  materials1:
-  - {fileID: 2100000, guid: 52a24ab3a30f0eb44b129abb292d89e8, type: 2}
 --- !u!1 &765145874674063173
 GameObject:
   m_ObjectHideFlags: 0
