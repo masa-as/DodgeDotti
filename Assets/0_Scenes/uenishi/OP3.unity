@@ -1464,6 +1464,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &722873937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722873932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6d807043a305a469c7bf79aa6a7fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 508361511}
+  moveSpeed: 10
+  stoppingDistance: 2
 --- !u!1 &735593390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9042402680831418734, guid: 7a924a3414b24834687dc896c38a3512, type: 3}
@@ -1493,7 +1508,6 @@ GameObject:
   m_Component:
   - component: {fileID: 820868010}
   - component: {fileID: 820868009}
-  - component: {fileID: 820868011}
   m_Layer: 0
   m_Name: ===teki2===
   m_TagString: Untagged
@@ -1538,21 +1552,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &820868011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820868008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6d807043a305a469c7bf79aa6a7fc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 508361511}
-  moveSpeed: 2.92
-  stoppingDistance: 2.2
 --- !u!1 &870007923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,6 +3456,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6f6b4f70216557548b8765398bab5ba8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 722873935}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6f6b4f70216557548b8765398bab5ba8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 722873937}
   m_SourcePrefab: {fileID: 100100000, guid: 6f6b4f70216557548b8765398bab5ba8, type: 3}
 --- !u!1 &1054112352934411
 GameObject:
