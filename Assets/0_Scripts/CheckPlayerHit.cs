@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CheckPlayerHit : MonoBehaviour
 {
     Image img;
+    GlitchFx glitchFx;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,18 +44,15 @@ public class CheckPlayerHit : MonoBehaviour
             }
             this.img.color = new Color(0.8f, 0f, 0f, 0.5f);
             FindObjectOfType<ScoreScript>().ReducePoint();
+            transform.parent.gameObject.GetComponent<GlitchFx>().enabled = true;
         }
         // Perfectなタイミングで避けたとき
         else if (other.gameObject.tag == "Perfect")
         {
-            Debug.Log("Perfect");
-            // TODO:演出を入れる
             FindObjectOfType<ScoreScript>().AddPoint(3);
         }
         else if (other.gameObject.tag == "Good")
         {
-            Debug.Log("Good");
-            // TODO:演出を入れる
             FindObjectOfType<ScoreScript>().AddPoint(1);
         }
 

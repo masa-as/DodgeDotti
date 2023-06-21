@@ -52,13 +52,13 @@ public class VoiceController : MonoBehaviour
         // TODO:リリース前に||は&&に変える
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
         {
+            playerTransform = Player.transform.position;
+            playerTransform.z += 2.5f;
+            Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
+            Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
             // o.oo5は超えてほしい
             if (0.005 < m_AudioLevel)
             {
-                playerTransform = Player.transform.position;
-                playerTransform.z += 1f;
-                Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 0, 90f));
-                Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, 0, 90f));
             }
         }
     }

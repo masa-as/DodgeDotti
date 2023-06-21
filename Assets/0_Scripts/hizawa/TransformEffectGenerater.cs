@@ -26,11 +26,9 @@ public class TransformEffect : MonoBehaviour
             _particleObj1 = Instantiate(_particlePref1);
             _particleObj1.transform.position = transform.position;
 
-            
+
         }
     }
-
-
 }
 
 

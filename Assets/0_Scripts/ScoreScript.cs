@@ -23,4 +23,10 @@ public class ScoreScript : MonoBehaviour
         GetComponent<Text>().text = "Score:" + score.ToString();
     }
 
+    public void SaveScore()
+    {
+        //ED‚Ö‚ÌƒV[ƒ“Ø‚è‘Ö‚¦‘O‚ÉŒÄ‚Ô
+        PlayerPrefs.SetInt("Score", score);
+    }
+
 }

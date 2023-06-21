@@ -16,7 +16,7 @@ public class MobGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        read_img(8);
+        read_img(3);
     }
 
     //リソースから表示させたい画像を指定した個数だけ読み込む関数
