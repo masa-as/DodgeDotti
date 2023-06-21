@@ -27,14 +27,14 @@ public class SetImage : MonoBehaviour
     void Start()
     {
         // scoreÇ≈èÍçáÇÌÇØ
-        if (Score <= 200)
+        if (Score <= 400)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[0];
             _particlePrefGood = Instantiate(_particlePrefGood);
             _particlePrefGood.transform.position = new Vector3(0,(float)0.7,0);
         }
-        else if(Score <= 400)
+        else if(Score <= 600)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[1];
