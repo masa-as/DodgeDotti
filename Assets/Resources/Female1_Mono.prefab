@@ -407,6 +407,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524f03b86f7011942a758b52761e5924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 7469529793074092417}
+  pants: {fileID: 6245666464442634666}
+  torso: {fileID: 4715020661951288852}
+  materials1:
+  - {fileID: 2100000, guid: dd7b2618aa2a1b247891c940902bac12, type: 2}
+  - {fileID: 2100000, guid: a9e3643a981facb43ac639b7aa74d238, type: 2}
+  materials2:
+  - {fileID: 2100000, guid: 1fb5187d0ade5114a8ebc3ca33e91596, type: 2}
+  - {fileID: 2100000, guid: a9e3643a981facb43ac639b7aa74d238, type: 2}
+  materials3:
+  - {fileID: 2100000, guid: 542b24b736c40bb46be1c2c4caa28c4f, type: 2}
+  - {fileID: 2100000, guid: dd7b2618aa2a1b247891c940902bac12, type: 2}
 --- !u!1 &2862377285049991834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,7 +1579,7 @@ Transform:
   - {fileID: 8132936704278151130}
   - {fileID: 2655713017226842216}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3069023847676580180
 Animator:

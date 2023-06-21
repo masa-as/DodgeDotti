@@ -231,7 +231,7 @@ Transform:
   - {fileID: 6705359865586807425}
   - {fileID: 5629693947202338859}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2557461009342009753
 Animator:
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 1131885426514603484}
   - component: {fileID: 5273983666032109038}
   - component: {fileID: 3459045578964632241}
-  - component: {fileID: 6506977350407312094}
+  - component: {fileID: 2964897309651391262}
   m_Layer: 0
   m_Name: Good
   m_TagString: Good
@@ -701,7 +701,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6506977350407312094
+--- !u!114 &2964897309651391262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -713,6 +713,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524f03b86f7011942a758b52761e5924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 5409694785647765022}
+  pants: {fileID: 8174116152398670233}
+  torso: {fileID: 5808063844219971565}
+  materials1:
+  - {fileID: 2100000, guid: dd7b2618aa2a1b247891c940902bac12, type: 2}
+  - {fileID: 2100000, guid: a9e3643a981facb43ac639b7aa74d238, type: 2}
+  materials2:
+  - {fileID: 2100000, guid: 1fb5187d0ade5114a8ebc3ca33e91596, type: 2}
+  - {fileID: 2100000, guid: a9e3643a981facb43ac639b7aa74d238, type: 2}
+  materials3:
+  - {fileID: 2100000, guid: 542b24b736c40bb46be1c2c4caa28c4f, type: 2}
+  - {fileID: 2100000, guid: dd7b2618aa2a1b247891c940902bac12, type: 2}
 --- !u!1 &3762536303230109600
 GameObject:
   m_ObjectHideFlags: 0
