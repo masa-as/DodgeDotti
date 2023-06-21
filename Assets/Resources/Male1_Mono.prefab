@@ -231,7 +231,7 @@ Transform:
   - {fileID: 6705359865586807425}
   - {fileID: 5629693947202338859}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2557461009342009753
 Animator:
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918363ccbde8ef942893248162da0c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.092376046
+  speed: 0.08
 --- !u!114 &6608210505577194798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -798,6 +798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5629693947202338859}
   - component: {fileID: 34360991921340703}
+  - component: {fileID: 8927734177151957423}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -838,7 +839,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -846,6 +847,23 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8927734177151957423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018362743478704410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434ffb3fa74676e488dd711558e4f8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 5409694785647765022}
+  pants: {fileID: 8174116152398670233}
+  torso: {fileID: 5808063844219971565}
+  materials1:
+  - {fileID: 2100000, guid: 52a24ab3a30f0eb44b129abb292d89e8, type: 2}
 --- !u!1 &4039736582719520573
 GameObject:
   m_ObjectHideFlags: 0
