@@ -5,7 +5,7 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
-public class SetImage : MonoBehaviour
+public class SetImages : MonoBehaviour
 {
 
     public Image image;
@@ -24,7 +24,7 @@ public class SetImage : MonoBehaviour
 
 
     // Update is called once per frame
-    void Start()
+    public void Display()
     {
         // scoreÇ≈èÍçáÇÌÇØ
         if (Score <= 400)
