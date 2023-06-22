@@ -31,7 +31,7 @@ public class SetImages : MonoBehaviour
     public void Display()
     {
 
-        Vector3 EffectPosition = new Vector3(0, (float)0.7, 0);
+        Vector3 EffectPosition = new Vector3(0, (float)0.8, 0);
         // scoreÇ≈èÍçáÇÌÇØ
         if (Score <= 400)
         {
