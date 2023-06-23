@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class ScoreScript : MonoBehaviour
 {
 
-    private int score = 0;
+    public static int score;
 
+    private void Awake()
+    {
+        score = getScore();
+    }
     void Start()
     {
+        // Debug.Log("load");
+        // PlayerPrefs.GetInt("Score", score);
         GetComponent<Text>().text = "Score:" + score.ToString();
     }
     public void ReducePoint()
@@ -23,10 +29,8 @@ public class ScoreScript : MonoBehaviour
         GetComponent<Text>().text = "Score:" + score.ToString();
     }
 
-    public void SaveScore()
+    public static int getScore()
     {
-        //EDÇ÷ÇÃÉVÅ[ÉìêÿÇËë÷Ç¶ëOÇ…åƒÇ‘
-        PlayerPrefs.SetInt("Score", score);
+        return score;
     }
-
 }

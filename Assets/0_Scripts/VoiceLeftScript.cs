@@ -10,7 +10,7 @@ public class VoiceLeftScript : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Text>().text = "voice_left:tt";
+        GetComponent<Text>().text = "voice:tt";
     }
 
     private void Update()
