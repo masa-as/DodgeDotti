@@ -9,9 +9,12 @@ public class SetImages : MonoBehaviour
 {
 
     public Image image;
-    public int Score;
+    //public int Score;
     public Sprite [] sprites;
+    private int _score;
 
+    public GameObject Score;
+    [SerializeField] private int DefaultScore = 1000;
 
     // Use this for initialization
 
@@ -32,15 +35,23 @@ public class SetImages : MonoBehaviour
     {
 
         Vector3 EffectPosition = new Vector3(0, (float)0.8, 0);
+
+
         // scoreÇ≈èÍçáÇÌÇØ
-        if (Score <= 400)
+        //TODO ScoreÇÃéÊìæ
+        _score = PlayerPrefs.GetInt("Score", DefaultScore);
+
+
+
+        //Todo forÇ≈è»ó™
+        if (_score <= 400)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[0];
             _particlePref1 = Instantiate(_particlePref1);
             _particlePref1.transform.position = EffectPosition;
         }
-        else if(Score <= 600)
+        else if(_score <= 600)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[1];
@@ -49,7 +60,7 @@ public class SetImages : MonoBehaviour
             _particlePref2 = Instantiate(_particlePref2);
             _particlePref2.transform.position = EffectPosition;
         }
-        else if (Score <= 800)
+        else if (_score <= 800)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[2];
