@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class CheckPlayerHit : MonoBehaviour
 {
     GlitchFx glitchFx;
+    GameObject obj;
+
     // Start is called before the first frame update
     void Start()
     {
+        obj = (GameObject)Resources.Load("Bad");
+
     }
 
     public static IEnumerator Vibrate(float duration = 0.1f, float frequency = 0.1f, float amplitude = 0.1f, OVRInput.Controller controller = OVRInput.Controller.Active)
@@ -41,6 +45,7 @@ public class CheckPlayerHit : MonoBehaviour
             }
             FindObjectOfType<ScoreScript>().ReducePoint();
             transform.parent.gameObject.GetComponent<GlitchFx>().enabled = true;
+            Instantiate(obj, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z + 1.0f), Quaternion.Euler(90f, 180f, 0f));
         }
         // Perfectなタイミングで避けたとき
         else if (other.gameObject.tag == "Perfect")

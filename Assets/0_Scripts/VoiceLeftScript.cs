@@ -6,20 +6,16 @@ using UnityEngine.SceneManagement;
 public class VoiceLeftScript : MonoBehaviour
 {
 
-    public int voice_left = 3;
+    public int voice_left = 2;
 
     void Start()
     {
-        GetComponent<Text>().text = "voice_left:ttt";
+        GetComponent<Text>().text = "voice_left:tt";
     }
 
     private void Update()
     {
-        if (voice_left == 3)
-        {
-            GetComponent<Text>().text = "voice:ttt";
-        }
-        else if (voice_left == 2)
+        if (voice_left == 2)
         {
             GetComponent<Text>().text = "voice:tt";
         }

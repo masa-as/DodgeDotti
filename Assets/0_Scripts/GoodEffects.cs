@@ -5,6 +5,7 @@ using UnityEngine;
 public class GoodEffects : MonoBehaviour
 {
     GameObject obj;
+    GameObject obj2;
 
     private GameObject _particlePref1;
     private GameObject _particleObj1;
@@ -24,6 +25,7 @@ public class GoodEffects : MonoBehaviour
     void Start()
     {
         obj = (GameObject)Resources.Load("GoodEffects");
+        obj2 = (GameObject)Resources.Load("Good");
         _particlePref1 = (GameObject)Resources.Load("TransformEffects");
         meshRenderer1 = head.GetComponent<SkinnedMeshRenderer>();
         meshRenderer2 = pants.GetComponent<SkinnedMeshRenderer>();
@@ -36,6 +38,8 @@ public class GoodEffects : MonoBehaviour
         {
             GameObject particle = Instantiate(obj, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z + 3.0f), Quaternion.identity);
             particle.transform.parent = this.transform;
+
+            Instantiate(obj2, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z + 1.0f), Quaternion.Euler(90f, 180f, 0f));
 
             // エフェクトの位置を自分と同じ位置にする
             _particleObj1 = Instantiate(_particlePref1);

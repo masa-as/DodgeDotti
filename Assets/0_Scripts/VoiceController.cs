@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class VoiceController : MonoBehaviour
@@ -62,21 +63,34 @@ public class VoiceController : MonoBehaviour
         m_AudioLevel = waveData.Average(Mathf.Abs);
 
         // TODO:リリース前に||は&&に変える
-        // if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
-        if (Input.GetKeyDown(KeyCode.D))
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        // if (Input.GetKeyDown(KeyCode.D))
         {
-            if (voiceLeftScript.voice_left >= 1)
+            Debug.Log(SceneManager.GetActiveScene().name);
+            if (SceneManager.GetActiveScene().name == "OP3")
             {
-                playerTransform = Player.transform.position;
-                playerTransform.z += 2.5f;
-                Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
-                Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
-                beatManager.note = BeatManager.Note.WholeNote;
-                FindObjectOfType<VoiceLeftScript>().VoiceUse();
-
-                // o.oo5は超えてほしい
                 if (0.005 < m_AudioLevel)
                 {
+                    playerTransform = Player.transform.position;
+                    playerTransform.z += 2.5f;
+                    Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
+                    Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
+                }
+            }
+            else
+            {
+                if (voiceLeftScript.voice_left >= 1)
+                {
+                    // o.oo5は超えてほしい
+                    if (0.005 < m_AudioLevel)
+                    {
+                        playerTransform = Player.transform.position;
+                        playerTransform.z += 2.5f;
+                        Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
+                        Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
+                        // beatManager.note = BeatManager.Note.WholeNote;
+                        FindObjectOfType<VoiceLeftScript>().VoiceUse();
+                    }
                 }
             }
         }
