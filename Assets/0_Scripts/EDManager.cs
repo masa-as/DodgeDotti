@@ -29,12 +29,13 @@ public class EDManager : MonoBehaviour
     void Start()
     {
         _Image.gameObject.SetActive(false);
-        // ToDo: EDシーン切り替え前に、PlayerPrefs.SetInt("Score", DefaultScore)をする
-        _score = PlayerPrefs.GetInt("Score", DefaultScore);
+        _score = ScoreScript.getScore();
+
         if (num == EDNumber.TochouMae)
         {
             Score.GetComponent<Text>().text = "Score:" + _score.ToString();
-        }else if (num == EDNumber.TochouUe)
+        }
+        else if (num == EDNumber.TochouUe)
         {
             displayInterval = (float)_score / display_time_sec * 0.1f; //0.1秒おきに画面には表示
             scoreCountText.text = "Score: " + ((int)scorecount).ToString();
