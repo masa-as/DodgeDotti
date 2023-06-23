@@ -2,40 +2,33 @@ using UnityEngine;
 
 public class BlinkingObject : MonoBehaviour
 {
-    public Color blinkColor = Color.red; // 点滅時の色
+    public Color color1; // インスペクターで指定する色1
+    public Color color2; // インスペクターで指定する色2
     public float blinkInterval = 1.0f; // 点滅の間隔（秒）
 
     private Renderer objectRenderer;
-    private Color originalColor;
-    private bool isBlinking = false;
+    private float timer;
+    private bool isColor1Active;
 
     private void Start()
     {
         objectRenderer = GetComponent<Renderer>();
-        originalColor = objectRenderer.material.color;
+        timer = 0f;
+        isColor1Active = true;
     }
 
     private void Update()
     {
-        if (!isBlinking)
+        timer += Time.deltaTime;
+
+        if (timer >= blinkInterval)
         {
-            // 点滅を開始
-            StartCoroutine(Blink());
-        }
-    }
+            // タイマーが指定の間隔を超えたら色を切り替える
+            timer = 0f;
+            isColor1Active = !isColor1Active;
 
-    private System.Collections.IEnumerator Blink()
-    {
-        isBlinking = true;
-
-        // 点滅ループ
-        while (true)
-        {
-            objectRenderer.material.color = blinkColor;
-            yield return new WaitForSeconds(blinkInterval);
-
-            objectRenderer.material.color = originalColor;
-            yield return new WaitForSeconds(blinkInterval);
+            // 色を適用する
+            objectRenderer.material.color = isColor1Active ? color1 : color2;
         }
     }
 }
