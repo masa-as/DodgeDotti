@@ -31,23 +31,28 @@ public class VoiceController : MonoBehaviour
 
     void Start()
     {
-        soundSystem = GameObject.Find("SoundSystem");
-        beatManager = soundSystem.GetComponent<BeatManager>();
+        // Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main2_BlueChip")
+        {
 
-        voiceLeft = GameObject.Find("VoiceLeft");
-        voiceLeftScript = voiceLeft.GetComponent<VoiceLeftScript>();
+            soundSystem = GameObject.Find("SoundSystem");
+            beatManager = soundSystem.GetComponent<BeatManager>();
+
+            voiceLeft = GameObject.Find("VoiceLeft");
+            voiceLeftScript = voiceLeft.GetComponent<VoiceLeftScript>();
+        }
         string targetDevice = "";
 
         foreach (var device in Microphone.devices)
         {
-            Debug.Log($"Device Name: {device}");
+            // Debug.Log($"Device Name: {device}");
             if (device.Contains(m_DeviceName))
             {
                 targetDevice = device;
             }
         }
 
-        Debug.Log($"=== Device Set: {targetDevice} ===");
+        // Debug.Log($"=== Device Set: {targetDevice} ===");
         m_AudioClip = Microphone.Start(targetDevice, true, 10, 48000);
         m_cube_left = (GameObject)Resources.Load("VoiceScaleLeft");
         m_cube_right = (GameObject)Resources.Load("VoiceScaleRight");
@@ -64,9 +69,9 @@ public class VoiceController : MonoBehaviour
 
         // TODO:リリース前に||は&&に変える
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
-        // if (Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log(SceneManager.GetActiveScene().name);
+            Debug.Log(m_AudioLevel);
             if (SceneManager.GetActiveScene().name == "OP3")
             {
                 if (0.005 < m_AudioLevel)
@@ -88,12 +93,19 @@ public class VoiceController : MonoBehaviour
                         playerTransform.z += 2.5f;
                         Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
                         Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
-                        // beatManager.note = BeatManager.Note.WholeNote;
+                        beatManager.note = BeatManager.Note.WholeNote;
                         FindObjectOfType<VoiceLeftScript>().VoiceUse();
+                        StartCoroutine("BackNote");
                     }
                 }
             }
         }
+    }
+
+    IEnumerator BackNote()
+    {
+        yield return new WaitForSeconds(2);
+        beatManager.note = BeatManager.Note.HalfNote;
     }
 
     private float[] GetUpdatedAudio()
