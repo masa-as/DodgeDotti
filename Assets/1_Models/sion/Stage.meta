@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/0_Scenes/uenishi/OP3.unity.meta
+guid: 783581592886eea49b2a5f6b20f79db8
+========
 guid: 92525281ba3541d49b40c2a08675fd73
 folderAsset: yes
+>>>>>>>> origin/develop:Assets/1_Models/sion/Stage.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

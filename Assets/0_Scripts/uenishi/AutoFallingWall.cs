@@ -1,0 +1,46 @@
+using UnityEngine;
+using System.Collections; // ’Ç‰Á
+
+public class AutoFallingWall : MonoBehaviour
+{
+    public float startDelay = 1.0f; // ‰ñ“]‚ªŽn‚Ü‚é‚Ü‚Å‚Ì‘Ò‹@ŽžŠÔi•bj
+    public float rotationSpeed = 90.0f; // ‰ñ“]‘¬“xi“x/•bj
+    public Vector3 rotationAxis = Vector3.up; // ‰ñ“]Ž²
+    public float rotationAngle = 90.0f; // ‰ñ“]Šp“xi“xj
+
+    private bool rotating = false;
+
+    void Start()
+    {
+        // Žw’è‚³‚ê‚½•b”Œã‚É‰ñ“]‚ðŠJŽn‚·‚éƒRƒ‹[ƒ`ƒ“‚ðŠJŽn
+        StartCoroutine(StartRotation());
+    }
+
+    void Update()
+    {
+        // ‰ñ“]ƒtƒ‰ƒO‚ª—§‚Á‚Ä‚¢‚éê‡‚ÉƒIƒuƒWƒFƒNƒg‚ð‰ñ“]‚³‚¹‚é
+        if (rotating)
+        {
+            transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    IEnumerator StartRotation()
+    {
+        // Žw’è‚³‚ê‚½•b”‘Ò‹@
+        yield return new WaitForSeconds(startDelay);
+
+        // ‰ñ“]ƒtƒ‰ƒO‚ð—§‚Ä‚é‚±‚Æ‚Å‰ñ“]‚ðŠJŽn
+        rotating = true;
+
+        // Žw’è‚³‚ê‚½Šp“x‚Ü‚Å‰ñ“]‚µ‚½‚ç‰ñ“]‚ð’âŽ~
+        Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles + rotationAxis * rotationAngle);
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.01f)
+        {
+            yield return null;
+        }
+
+        // ‰ñ“]‚ð’âŽ~
+        rotating = false;
+    }
+}
