@@ -36,6 +36,44 @@ public class BeatManager : MonoBehaviour
     private void Start()
     {
         beat_timer = 0.0f;
+        StartCoroutine("ChangeNote1");
+        StartCoroutine("ChangeNote2");
+        StartCoroutine("ChangeNote3");
+        StartCoroutine("ChangeNote4");
+        StartCoroutine("ChangeNote5");
+        StartCoroutine("ChangeNote6");
+    }
+
+    IEnumerator ChangeNote1()
+    {
+        yield return new WaitForSeconds(16);
+        note = Note.QuarterNote;
+    }
+
+    IEnumerator ChangeNote2()
+    {
+        yield return new WaitForSeconds(32);
+        note = Note.EighthNote;
+    }
+    IEnumerator ChangeNote3()
+    {
+        yield return new WaitForSeconds(40);
+        note = Note.QuarterNote;
+    }
+    IEnumerator ChangeNote4()
+    {
+        yield return new WaitForSeconds(44);
+        note = Note.HalfNote;
+    }
+    IEnumerator ChangeNote5()
+    {
+        yield return new WaitForSeconds(50);
+        note = Note.QuarterNote;
+    }
+    IEnumerator ChangeNote6()
+    {
+        yield return new WaitForSeconds(58);
+        note = Note.EighthNote;
     }
 
     private void FixedUpdate()
