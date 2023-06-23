@@ -10,10 +10,11 @@ public class SetImages : MonoBehaviour
 
     public Image image;
     //public int Score;
-    public Sprite [] sprites;
+    public Sprite[] sprites;
     private int _score;
 
-    public GameObject Score;
+    public GameObject scoreManager;
+    ScoreScript scoreScript;
     [SerializeField] private int DefaultScore = 1000;
 
     // Use this for initialization
@@ -28,7 +29,11 @@ public class SetImages : MonoBehaviour
     public GameObject _particlePref4;
     private GameObject _particleObj4;
 
-
+    private void Start()
+    {
+        // scoreManager = GameObject.Find("ScoreManager");
+        // scoreScript = scoreManager.GetComponent<ScoreScript>();
+    }
 
     // Update is called once per frame
     public void Display()
@@ -39,7 +44,7 @@ public class SetImages : MonoBehaviour
 
         // scoreÇ≈èÍçáÇÌÇØ
         //TODO ScoreÇÃéÊìæ
-        _score = PlayerPrefs.GetInt("Score", DefaultScore);
+        _score = ScoreScript.getScore();
 
 
 
@@ -51,7 +56,7 @@ public class SetImages : MonoBehaviour
             _particlePref1 = Instantiate(_particlePref1);
             _particlePref1.transform.position = EffectPosition;
         }
-        else if(_score <= 600)
+        else if (_score <= 600)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[1];

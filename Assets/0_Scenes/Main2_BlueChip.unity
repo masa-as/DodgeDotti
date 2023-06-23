@@ -984,7 +984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Hizawa_TochouUe
   loadToColor: {r: 1, g: 1, b: 1, a: 1}
-  SecToTransition: 5
+  SecToTransition: 30
 --- !u!4 &659103337
 Transform:
   m_ObjectHideFlags: 0
