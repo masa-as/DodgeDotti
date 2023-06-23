@@ -4,15 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class EDManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreCountText;
-    private int _score;
     public float scorecount = 0.0f;
     public float display_time_sec;
+    public GameObject Score, _Image;
+
     [SerializeField] private int DefaultScore = 1000;
-    public GameObject Score;
+    [SerializeField] private float offset = 2.0f; // スコア計算終了後からoffset秒後にイベント起こす
+
     private float displayInterval;
+    private int _score;
+
+
     public enum EDNumber
     {
         TochouMae,
@@ -22,6 +28,7 @@ public class EDManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _Image.gameObject.SetActive(false);
         // ToDo: EDシーン切り替え前に、PlayerPrefs.SetInt("Score", DefaultScore)をする
         _score = PlayerPrefs.GetInt("Score", DefaultScore);
         if (num == EDNumber.TochouMae)
@@ -42,5 +49,11 @@ public class EDManager : MonoBehaviour
             scoreCountText.text = "Score: " + ((int)scorecount).ToString();
             yield return new WaitForSeconds(0.1f);
         }
+        yield return new WaitForSeconds(offset);
+        _Image.gameObject.SetActive(true);
+        _Image.GetComponent<SetImages>().Display();
     }
+
+
+
 }

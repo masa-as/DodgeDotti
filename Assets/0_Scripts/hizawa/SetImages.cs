@@ -5,7 +5,7 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
-public class SetImage : MonoBehaviour
+public class SetImages : MonoBehaviour
 {
 
     public Image image;
@@ -16,50 +16,62 @@ public class SetImage : MonoBehaviour
     // Use this for initialization
 
 
-    public GameObject _particlePrefGood;
-    private GameObject _particleObjGood;
-    public GameObject _particlePrefPerfect;
-    private GameObject _particleObjPerfect;
+    public GameObject _particlePref1;
+    private GameObject _particleObj1;
+    public GameObject _particlePref2;
+    private GameObject _particleObj2;
+    public GameObject _particlePref3;
+    private GameObject _particleObj3;
+    public GameObject _particlePref4;
+    private GameObject _particleObj4;
 
 
 
     // Update is called once per frame
-    void Start()
+    public void Display()
     {
+
+        Vector3 EffectPosition = new Vector3(0, (float)0.8, 0);
         // scoreÇ≈èÍçáÇÌÇØ
-        if (Score <= 200)
+        if (Score <= 400)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[0];
-            _particlePrefGood = Instantiate(_particlePrefGood);
-            _particlePrefGood.transform.position = new Vector3(0,(float)0.7,0);
+            _particlePref1 = Instantiate(_particlePref1);
+            _particlePref1.transform.position = EffectPosition;
         }
-        else if(Score <= 400)
+        else if(Score <= 600)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[1];
-            _particlePrefGood = Instantiate(_particlePrefGood);
-            _particlePrefGood.transform.position = new Vector3(0, (float)0.7, 0);
-            _particlePrefGood = Instantiate(_particlePrefGood);
-            _particlePrefGood.transform.position = new Vector3(0, (float)0.7, 0);
+            _particlePref1 = Instantiate(_particlePref1);
+            _particlePref1.transform.position = EffectPosition;
+            _particlePref2 = Instantiate(_particlePref2);
+            _particlePref2.transform.position = EffectPosition;
         }
         else if (Score <= 800)
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[2];
-            _particlePrefPerfect = Instantiate(_particlePrefPerfect);
-            _particlePrefPerfect.transform.position = new Vector3(0, (float)0.7, 0);
-            _particlePrefPerfect = Instantiate(_particlePrefPerfect);
-            _particlePrefPerfect.transform.position = new Vector3(0, (float)0.7, 0);
+            _particlePref1 = Instantiate(_particlePref1);
+            _particlePref1.transform.position = EffectPosition;
+            _particlePref2 = Instantiate(_particlePref2);
+            _particlePref2.transform.position = EffectPosition;
+            _particlePref3 = Instantiate(_particlePref3);
+            _particlePref3.transform.position = EffectPosition;
         }
         else
         {
             image = this.GetComponent<Image>();
             image.sprite = sprites[3];
-            _particlePrefGood = Instantiate(_particlePrefGood);
-            _particlePrefGood.transform.position = new Vector3(0, (float)0.7, 0);
-            _particlePrefPerfect = Instantiate(_particlePrefPerfect);
-            _particlePrefPerfect.transform.position = new Vector3(0, (float)0.7, 0);
+            _particlePref1 = Instantiate(_particlePref1);
+            _particlePref1.transform.position = EffectPosition;
+            _particlePref2 = Instantiate(_particlePref2);
+            _particlePref2.transform.position = EffectPosition;
+            _particlePref3 = Instantiate(_particlePref3);
+            _particlePref3.transform.position = EffectPosition;
+            _particlePref4 = Instantiate(_particlePref4);
+            _particlePref4.transform.position = EffectPosition;
         }
     }
 }
