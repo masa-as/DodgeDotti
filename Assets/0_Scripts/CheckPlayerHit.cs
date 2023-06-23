@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class CheckPlayerHit : MonoBehaviour
 {
-    GlitchFx glitchFx;
+    Image img;
     GameObject obj;
 
     // Start is called before the first frame update
     void Start()
     {
         obj = (GameObject)Resources.Load("Bad");
+        img = GameObject.Find("Red").GetComponent<Image>();
+        img.color = Color.clear;
 
     }
 
@@ -44,7 +46,8 @@ public class CheckPlayerHit : MonoBehaviour
                 StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.RTouch));
             }
             FindObjectOfType<ScoreScript>().ReducePoint();
-            transform.parent.gameObject.GetComponent<GlitchFx>().enabled = true;
+            this.img.color = new Color(0.8f, 0f, 0f, 0.5f);
+
             Instantiate(obj, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z + 1.0f), Quaternion.Euler(90f, 180f, 0f));
         }
         // Perfectなタイミングで避けたとき
@@ -60,6 +63,8 @@ public class CheckPlayerHit : MonoBehaviour
     }
     void Update()
     {
+        this.img.color = Color.Lerp(this.img.color, Color.clear, Time.deltaTime);
+
     }
 
 }
