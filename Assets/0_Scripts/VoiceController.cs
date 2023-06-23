@@ -17,12 +17,24 @@ public class VoiceController : MonoBehaviour
     private GameObject m_cube_left;
     private Vector3 playerTransform;
 
+    GameObject soundSystem;
+    BeatManager beatManager;
+
+    GameObject voiceLeft;
+
+    VoiceLeftScript voiceLeftScript;
+
 
     [SerializeField, Range(10, 300)] private float m_AmpGain = 200;
     float tmp = 0;
 
     void Start()
     {
+        soundSystem = GameObject.Find("SoundSystem");
+        beatManager = soundSystem.GetComponent<BeatManager>();
+
+        voiceLeft = GameObject.Find("VoiceLeft");
+        voiceLeftScript = voiceLeft.GetComponent<VoiceLeftScript>();
         string targetDevice = "";
 
         foreach (var device in Microphone.devices)
@@ -50,15 +62,22 @@ public class VoiceController : MonoBehaviour
         m_AudioLevel = waveData.Average(Mathf.Abs);
 
         // TODO:リリース前に||は&&に変える
-        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        // if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            // o.oo5は超えてほしい
-            if (0.005 < m_AudioLevel)
+            if (voiceLeftScript.voice_left >= 1)
             {
                 playerTransform = Player.transform.position;
                 playerTransform.z += 2.5f;
                 Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
                 Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
+                beatManager.note = BeatManager.Note.WholeNote;
+                FindObjectOfType<VoiceLeftScript>().VoiceUse();
+
+                // o.oo5は超えてほしい
+                if (0.005 < m_AudioLevel)
+                {
+                }
             }
         }
     }

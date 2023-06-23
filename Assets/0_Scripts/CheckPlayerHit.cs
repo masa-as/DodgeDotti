@@ -5,13 +5,10 @@ using UnityEngine.UI;
 
 public class CheckPlayerHit : MonoBehaviour
 {
-    Image img;
     GlitchFx glitchFx;
     // Start is called before the first frame update
     void Start()
     {
-        img = GameObject.Find("Red").GetComponent<Image>();
-        img.color = Color.clear;
     }
 
     public static IEnumerator Vibrate(float duration = 0.1f, float frequency = 0.1f, float amplitude = 0.1f, OVRInput.Controller controller = OVRInput.Controller.Active)
@@ -42,7 +39,6 @@ public class CheckPlayerHit : MonoBehaviour
             {
                 StartCoroutine(Vibrate(duration: 0.5f, controller: OVRInput.Controller.RTouch));
             }
-            this.img.color = new Color(0.8f, 0f, 0f, 0.5f);
             FindObjectOfType<ScoreScript>().ReducePoint();
             transform.parent.gameObject.GetComponent<GlitchFx>().enabled = true;
         }
@@ -59,7 +55,6 @@ public class CheckPlayerHit : MonoBehaviour
     }
     void Update()
     {
-        this.img.color = Color.Lerp(this.img.color, Color.clear, Time.deltaTime);
     }
 
 }
