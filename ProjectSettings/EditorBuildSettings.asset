@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/0_Scenes/ueda/TotyouMae.unity
     guid: 6f09c910f3df43142bd85f2d3df13936
-  - enabled: 1
+  - enabled: 0
     path: Assets/0_Scenes/ueda/TochouUe.unity
     guid: 2f872180392cc8a47a1ce3abad393049
   - enabled: 1
