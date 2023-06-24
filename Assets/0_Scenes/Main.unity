@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Main2_BlueChip
   loadToColor: {r: 1, g: 1, b: 1, a: 1}
-  SecToTransition: 65
+  SecToTransition: 69
 --- !u!4 &2129525581
 Transform:
   m_ObjectHideFlags: 0

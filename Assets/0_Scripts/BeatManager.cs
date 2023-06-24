@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BeatManager : MonoBehaviour
 {
@@ -36,12 +37,25 @@ public class BeatManager : MonoBehaviour
     private void Start()
     {
         beat_timer = 0.0f;
-        StartCoroutine("ChangeNote1");
-        StartCoroutine("ChangeNote2");
-        StartCoroutine("ChangeNote3");
-        StartCoroutine("ChangeNote4");
-        StartCoroutine("ChangeNote5");
-        StartCoroutine("ChangeNote6");
+        note = Note.HalfNote;
+        if (SceneManager.GetActiveScene().name == "Main")
+        {
+            StartCoroutine("ChangeNote1");
+            StartCoroutine("ChangeNote2");
+            StartCoroutine("ChangeNote3");
+            StartCoroutine("ChangeNote4");
+            StartCoroutine("ChangeNote5");
+            StartCoroutine("ChangeNote6");
+        }else if (SceneManager.GetActiveScene().name == "Main2_BlueChip")
+        {
+            StartCoroutine("ChangeNote2_1");
+            StartCoroutine("ChangeNote2_2");
+            StartCoroutine("ChangeNote2_3");
+            StartCoroutine("ChangeNote2_4");
+            StartCoroutine("ChangeNote2_5");
+            StartCoroutine("ChangeNote2_6");
+
+        }
     }
 
     IEnumerator ChangeNote1()
@@ -74,6 +88,59 @@ public class BeatManager : MonoBehaviour
     {
         yield return new WaitForSeconds(58);
         note = Note.EighthNote;
+    }
+
+    IEnumerator ChangeNote2_1()
+    {
+        yield return new WaitForSeconds(17);
+        note = Note.QuarterNote;
+    }
+
+    IEnumerator ChangeNote2_2()
+    {
+        yield return new WaitForSeconds(32);
+        note = Note.EighthNote;
+    }
+    IEnumerator ChangeNote2_3()
+    {
+        yield return new WaitForSeconds(48);
+        note = Note.QuarterNote;
+    }
+    IEnumerator ChangeNote2_4()
+    {
+        yield return new WaitForSeconds(60);
+        note = Note.HalfNote;
+    }
+    IEnumerator ChangeNote2_5()
+    {
+        yield return new WaitForSeconds(78);
+        note = Note.QuarterNote;
+    }
+    IEnumerator ChangeNote2_6()
+    {
+        yield return new WaitForSeconds(85);
+        note = Note.HalfNote;
+    }
+
+    IEnumerator ChangeNote2_7()
+    {
+        yield return new WaitForSeconds(92);
+        note = Note.QuarterNote;
+    }
+    IEnumerator ChangeNote2_8()
+    {
+        yield return new WaitForSeconds(108);
+        note = Note.EighthNote;
+    }
+    IEnumerator ChangeNote2_9()
+    {
+        yield return new WaitForSeconds(124);
+        note = Note.HalfNote;
+    }
+    IEnumerator ChangeNote2_10()
+    {
+        yield return new WaitForSeconds(139);
+        note = Note.QuarterNote;
     }
 
     private void FixedUpdate()

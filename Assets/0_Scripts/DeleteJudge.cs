@@ -7,7 +7,7 @@ public class DeleteJudge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, 0.5f);
+        Destroy(this.gameObject, 0.25f);
     }
 
     // Update is called once per frame
