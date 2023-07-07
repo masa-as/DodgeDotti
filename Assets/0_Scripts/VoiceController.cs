@@ -6,7 +6,7 @@ using System.Collections;
 
 public class VoiceController : MonoBehaviour
 {
-
+    private int voice_flag = 1;
     [SerializeField] private string m_DeviceName;
     private AudioClip m_AudioClip;
     private int m_LastAudioPos;
@@ -84,7 +84,7 @@ public class VoiceController : MonoBehaviour
             }
             else
             {
-                if (voiceLeftScript.voice_left >= 1)
+                if (voiceLeftScript.voice_left >= 1&&voice_flag==1)
                 {
                     // o.oo5は超えてほしい
                     if (0.005 < m_AudioLevel)
@@ -96,6 +96,7 @@ public class VoiceController : MonoBehaviour
                         beatManager.note = BeatManager.Note.WholeNote;
                         FindObjectOfType<VoiceLeftScript>().VoiceUse();
                         StartCoroutine("BackNote");
+                        voice_flag = 0;
                     }
                 }
             }
@@ -104,8 +105,10 @@ public class VoiceController : MonoBehaviour
 
     IEnumerator BackNote()
     {
+
         yield return new WaitForSeconds(2);
         beatManager.note = BeatManager.Note.HalfNote;
+        voice_flag = 1;
     }
 
     private float[] GetUpdatedAudio()

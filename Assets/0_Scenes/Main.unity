@@ -923,7 +923,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2bca1ac35ac7a824c9069b3b4d9d5780, type: 3}
+    m_Font: {fileID: 12800000, guid: 3df43b4be210644458a5e2b656a435ff, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -1257,7 +1257,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36, type: 2}
   m_audioClip: {fileID: 8300000, guid: 866d5675f060cde4b99aa1fc3280e214, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.11
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1772,7 +1772,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2bca1ac35ac7a824c9069b3b4d9d5780, type: 3}
+    m_Font: {fileID: 12800000, guid: 3df43b4be210644458a5e2b656a435ff, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0

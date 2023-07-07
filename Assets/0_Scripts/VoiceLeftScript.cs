@@ -15,11 +15,7 @@ public class VoiceLeftScript : MonoBehaviour
 
     private void Update()
     {
-        if (voice_left == 2)
-        {
-            GetComponent<Text>().text = "voice:tt";
-        }
-        else if (voice_left == 1)
+        if (voice_left == 1)
         {
             GetComponent<Text>().text = "voice:t";
         }
