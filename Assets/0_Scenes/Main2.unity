@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a31acfd4a7c1247820ebeffff28045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Hizawa_TochouUe
+  sceneName: ED
   loadToColor: {r: 1, g: 1, b: 1, a: 1}
   SecToTransition: 150
 --- !u!4 &659103337

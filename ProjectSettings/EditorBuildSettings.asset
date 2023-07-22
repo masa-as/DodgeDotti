@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/0_Scenes/uenishi/OP2.unity
+    path: Assets/0_Scenes/uenishi/OP.unity
     guid: 0f606f4693896764b809643bc4d2ee7c
   - enabled: 1
-    path: Assets/0_Scenes/uenishi/OP3.unity
+    path: Assets/0_Scenes/uenishi/OP2.unity
     guid: fe1f5849c95173b40ab4217c4c479be8
   - enabled: 1
     path: Assets/0_Scenes/Main.unity
     guid: 9dc8033a3247ab0489f6cc78d4c493bb
   - enabled: 1
-    path: Assets/0_Scenes/Main2_BlueChip.unity
+    path: Assets/0_Scenes/Main2.unity
     guid: b09ce3a5a6202d74daadc1e67e0429b5
   - enabled: 1
-    path: Assets/0_Scenes/hizawa/Hizawa_TochouUe.unity
+    path: Assets/0_Scenes/hizawa/ED.unity
     guid: 326dfd092e6a2db42bf5e3cc2e0d4d49
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b34efbb32b8cfee4990f78c11d624b6f, type: 2}

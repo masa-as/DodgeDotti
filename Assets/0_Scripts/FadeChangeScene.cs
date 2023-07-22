@@ -1,20 +1,21 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
 
 public class FadeChangeScene : MonoBehaviour
 {
     //name of the scene you want to load
-    public string scene;
+    public string sceneName;
     public Color loadToColor = Color.white;
     public int SecToTransition;
 
     GameObject Score;
     ScoreScript scoreScript;
 
-    private void Start()
+    private async void Start()
     {
-        StartCoroutine("GoToNextScene");
+        await GoToNextScene();
         if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main2_BlueChip")
         {
             Score = GameObject.Find("Score");
@@ -22,28 +23,21 @@ public class FadeChangeScene : MonoBehaviour
         }
     }
 
-    IEnumerator GoToNextScene()
+    private async UniTask GoToNextScene()
     {
-        yield return new WaitForSeconds(SecToTransition);
+        var scene = SceneManager.LoadSceneAsync(sceneName);
+        scene.allowSceneActivation = false;
 
-        // if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main2_BlueChip")
-        // {
-        //     scoreScript.SaveScore();
-        // }
+        await UniTask.WhenAll(
+            UniTask.Delay(SecToTransition * 1000),
+            UniTask.WaitUntil(() => scene.progress >= 0.9f)
+        );
+        scene.allowSceneActivation = true;
         GoFade();
     }
 
     public void GoFade()
     {
-        Initiate.Fade(scene, loadToColor, 1.0f);
+        Initiate.Fade(sceneName, loadToColor, 1.0f);
     }
-
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.E))
-    //     {
-    //         GoFade();
-    //     }
-    // }
-
 }
