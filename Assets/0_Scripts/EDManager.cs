@@ -29,7 +29,7 @@ public class EDManager : MonoBehaviour
     void Start()
     {
         _Image.gameObject.SetActive(false);
-        _score = DefaultScore;
+        _score = ScoreScript.getScore();
 
         if (num == EDNumber.TochouMae)
         {

@@ -16,7 +16,7 @@ public class FadeChangeScene : MonoBehaviour
     private async void Start()
     {
         await GoToNextScene();
-        if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main2_BlueChip")
+        if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main2")
         {
             Score = GameObject.Find("Score");
             scoreScript = Score.GetComponent<ScoreScript>();
