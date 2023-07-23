@@ -32,7 +32,7 @@ public class VoiceController : MonoBehaviour
     void Start()
     {
         // Debug.Log(SceneManager.GetActiveScene().name);
-        if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main2_BlueChip")
+        if (SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "Main2")
         {
 
             soundSystem = GameObject.Find("SoundSystem");
@@ -72,7 +72,7 @@ public class VoiceController : MonoBehaviour
         {
             Debug.Log(SceneManager.GetActiveScene().name);
             Debug.Log(m_AudioLevel);
-            if (SceneManager.GetActiveScene().name == "OP3")
+            if (SceneManager.GetActiveScene().name == "OP2")
             {
                 if (0.005 < m_AudioLevel)
                 {
@@ -84,7 +84,7 @@ public class VoiceController : MonoBehaviour
             }
             else
             {
-                if (voiceLeftScript.voice_left >= 1&&voice_flag==1)
+                if (voiceLeftScript.voice_left >= 1 && voice_flag == 1)
                 {
                     // o.oo5は超えてほしい
                     if (0.005 < m_AudioLevel)
