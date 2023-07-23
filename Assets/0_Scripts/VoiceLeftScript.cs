@@ -26,6 +26,7 @@ public class VoiceLeftScript : MonoBehaviour
     }
     public void VoiceUse()
     {
+        Debug.Log("voice=" + voice_left);
         voice_left = voice_left - 1;
     }
 }

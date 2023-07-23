@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 
 public class FadeChangeScene : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class FadeChangeScene : MonoBehaviour
 
     GameObject Score;
     ScoreScript scoreScript;
+
+    // [SerializeField] private CanvasGroup canvasGroup;
 
     private async void Start()
     {
@@ -25,19 +28,21 @@ public class FadeChangeScene : MonoBehaviour
 
     private async UniTask GoToNextScene()
     {
-        var scene = SceneManager.LoadSceneAsync(sceneName);
-        scene.allowSceneActivation = false;
+        // var scene = SceneManager.LoadSceneAsync(sceneName);
+        // scene.allowSceneActivation = false;
 
-        await UniTask.WhenAll(
-            UniTask.Delay(SecToTransition * 1000),
-            UniTask.WaitUntil(() => scene.progress >= 0.9f)
-        );
-        scene.allowSceneActivation = true;
+        // await UniTask.WhenAll(
+        //     UniTask.Delay(SecToTransition * 1000),
+        //     UniTask.WaitUntil(() => scene.progress >= 0.9f)
+        // );
+        // scene.allowSceneActivation = true;
+        await UniTask.Delay(SecToTransition * 1000);
         GoFade();
     }
 
     public void GoFade()
     {
+        // canvasGroup.DOFade(1.0f, 1.0f);
         Initiate.Fade(sceneName, loadToColor, 1.0f);
     }
 }

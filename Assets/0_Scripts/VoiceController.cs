@@ -3,6 +3,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Cysharp.Threading.Tasks;
+
 
 public class VoiceController : MonoBehaviour
 {
@@ -60,53 +62,53 @@ public class VoiceController : MonoBehaviour
 
     }
 
-    void Update()
+    async void Update()
     {
         float[] waveData = GetUpdatedAudio();
         if (waveData.Length == 0) return;
 
         m_AudioLevel = waveData.Average(Mathf.Abs);
 
-        // TODO:リリース前に||は&&に変える
-        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
-        {
-            Debug.Log(SceneManager.GetActiveScene().name);
-            Debug.Log(m_AudioLevel);
-            if (SceneManager.GetActiveScene().name == "OP2")
+        if (Input.anyKeyDown)
+            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
             {
-                if (0.005 < m_AudioLevel)
+                // Debug.Log(SceneManager.GetActiveScene().name);
+                // Debug.Log(m_AudioLevel);
+                if (SceneManager.GetActiveScene().name == "OP2")
                 {
-                    playerTransform = Player.transform.position;
-                    playerTransform.z += 2.5f;
-                    Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
-                    Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
-                }
-            }
-            else
-            {
-                if (voiceLeftScript.voice_left >= 1 && voice_flag == 1)
-                {
-                    // o.oo5は超えてほしい
                     if (0.005 < m_AudioLevel)
                     {
                         playerTransform = Player.transform.position;
                         playerTransform.z += 2.5f;
                         Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
                         Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
-                        beatManager.note = BeatManager.Note.WholeNote;
-                        FindObjectOfType<VoiceLeftScript>().VoiceUse();
-                        StartCoroutine("BackNote");
-                        voice_flag = 0;
+                    }
+                }
+                else
+                {
+                    if (voiceLeftScript.voice_left >= 1 && voice_flag == 1)
+                    {
+                        // o.oo5は超えてほしい
+                        if (0.005 < m_AudioLevel)
+                        {
+                            playerTransform = Player.transform.position;
+                            playerTransform.z += 2.5f;
+                            Instantiate(m_cube_left, playerTransform, Quaternion.Euler(0, 5f, 90f));
+                            Instantiate(m_cube_right, playerTransform, Quaternion.Euler(0, -5f, 90f));
+                            voiceLeftScript.VoiceUse();
+                            beatManager.note = BeatManager.Note.WholeNote;
+                            voice_flag = 0;
+                            await BackNote();
+                        }
                     }
                 }
             }
-        }
+
     }
 
-    IEnumerator BackNote()
+    async UniTask BackNote()
     {
-
-        yield return new WaitForSeconds(2);
+        await UniTask.Delay(2000);
         beatManager.note = BeatManager.Note.HalfNote;
         voice_flag = 1;
     }
