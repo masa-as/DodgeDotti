@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/0_Scenes/Main2.unity
     guid: b09ce3a5a6202d74daadc1e67e0429b5
   - enabled: 1
-    path: Assets/0_Scenes/hizawa/ED.unity
+    path: Assets/0_Scenes/ED.unity
     guid: 326dfd092e6a2db42bf5e3cc2e0d4d49
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b34efbb32b8cfee4990f78c11d624b6f, type: 2}
