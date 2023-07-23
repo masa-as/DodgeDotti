@@ -4050,7 +4050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a31acfd4a7c1247820ebeffff28045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Main
   loadToColor: {r: 1, g: 1, b: 1, a: 1}
   SecToTransition: 25
 --- !u!4 &978476764
