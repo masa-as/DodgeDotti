@@ -10,7 +10,7 @@ public class BeatManager : MonoBehaviour
     // public AudioClip beatclip;
     public enum Note
     {
-        //‘S‰¹•„, 2•ª‰¹•„, ..., 16•ª‰¹•„
+        //ï¿½Sï¿½ï¿½ï¿½ï¿½, 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ..., 16ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         WholeNote = 1,
         HalfNote = 2,
         QuarterNote = 4,
@@ -20,14 +20,14 @@ public class BeatManager : MonoBehaviour
     public Note note;
 
     public float bpm;
-    private bool play_beat = true;  //Šm”F—p
+    private bool play_beat = true;  //ï¿½mï¿½Fï¿½p
     private float beat_interval;
     private float beat_timer;
     public Dictionary<Note, float> note2interval = new Dictionary<Note, float>();
 
     private void Awake()
     {
-        beat_interval = 60.0f / bpm;  // •b’PˆÊ•ÏŠ·
+        beat_interval = 60.0f / bpm;  // ï¿½bï¿½Pï¿½Ê•ÏŠï¿½
         foreach (Note _note in System.Enum.GetValues(typeof(Note)))
         {
             note2interval[_note] = beat_interval / ((float)_note / 4.0f);
@@ -46,7 +46,8 @@ public class BeatManager : MonoBehaviour
             StartCoroutine("ChangeNote4");
             StartCoroutine("ChangeNote5");
             StartCoroutine("ChangeNote6");
-        }else if (SceneManager.GetActiveScene().name == "Main2_BlueChip")
+        }
+        else if (SceneManager.GetActiveScene().name == "Main2")
         {
             StartCoroutine("ChangeNote2_1");
             StartCoroutine("ChangeNote2_2");

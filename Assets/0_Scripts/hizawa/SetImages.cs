@@ -44,8 +44,8 @@ public class SetImages : MonoBehaviour
 
         // score‚Åê‡‚í‚¯
         //TODO Score‚Ìæ“¾
-        // _score = ScoreScript.getScore();        
-        _score = DefaultScore;
+        _score = ScoreScript.getScore();
+        // _score = DefaultScore;
 
 
         //Todo for‚ÅÈ—ª

@@ -34,7 +34,7 @@ public class EDManager : MonoBehaviour
         //
         _replay.gameObject.SetActive(false);
         //
-        _score = DefaultScore;
+        _score = ScoreScript.getScore();
 
         if (num == EDNumber.TochouMae)
         {
