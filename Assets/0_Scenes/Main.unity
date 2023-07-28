@@ -1784,7 +1784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Voice:ttt
+  m_Text: Voice:tt
 --- !u!222 &1766688659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d31a0106bf298948b16012632aee392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voice_left: 3
+  voice_left: 2
 --- !u!1 &1854375584
 GameObject:
   m_ObjectHideFlags: 0

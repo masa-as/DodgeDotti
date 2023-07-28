@@ -7,13 +7,15 @@ public class CheckPlayerHit : MonoBehaviour
 {
     Image img;
     GameObject obj;
-
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         obj = (GameObject)Resources.Load("Bad");
         img = GameObject.Find("Red").GetComponent<Image>();
         img.color = Color.clear;
+        rb = gameObject.GetComponent<Rigidbody>();
+        rb.sleepThreshold = 10;
 
     }
 
@@ -63,8 +65,11 @@ public class CheckPlayerHit : MonoBehaviour
     }
     void Update()
     {
+        // if (rb.IsSleeping())
+        // {
+        //     Debug.Log("sleep");
+        // }
         this.img.color = Color.Lerp(this.img.color, Color.clear, Time.deltaTime);
 
     }
-
 }
