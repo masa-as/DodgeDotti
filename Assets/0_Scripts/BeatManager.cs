@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class BeatManager : MonoBehaviour
 {
     [SerializeField]
-    private float AdjustNoteRatio = 2.0f;
+    private float AdjustNoteRatio = 1.5f;
 
     public AudioSource audioSource;
     // public AudioClip beatclip;
