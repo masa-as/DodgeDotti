@@ -1,20 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BeatManager : MonoBehaviour
 {
+    [SerializeField]
+    private float AdjustNoteRatio = 2.0f;
 
     public AudioSource audioSource;
     // public AudioClip beatclip;
     public enum Note
     {
-        //�S����, 2������, ..., 16������
         WholeNote = 1,
         HalfNote = 2,
+        ThirdNote = 3,
         QuarterNote = 4,
+        FifthNote = 5,
+        SixthNote = 6,
+        SeventhNote = 7,
         EighthNote = 8,
+        NinethNote = 9,
+        TenthNote = 10,
+        EleventhNote = 11,
+        TwelfthNote = 12,
         SixteethNote = 16
     }
     public Note note;
@@ -30,7 +40,7 @@ public class BeatManager : MonoBehaviour
         beat_interval = 60.0f / bpm;  // �b�P�ʕϊ�
         foreach (Note _note in System.Enum.GetValues(typeof(Note)))
         {
-            note2interval[_note] = beat_interval / ((float)_note / 4.0f);
+            note2interval[_note] = AdjustNoteRatio * beat_interval / ((float)_note / 4.0f);
         }
     }
 
@@ -55,92 +65,111 @@ public class BeatManager : MonoBehaviour
             StartCoroutine("ChangeNote2_4");
             StartCoroutine("ChangeNote2_5");
             StartCoroutine("ChangeNote2_6");
-
+            StartCoroutine("ChangeNote2_7");
+            StartCoroutine("ChangeNote2_8");
+            StartCoroutine("ChangeNote2_9");
+            StartCoroutine("ChangeNote2_10");
         }
     }
 
     IEnumerator ChangeNote1()
     {
         yield return new WaitForSeconds(16);
+        Debug.Log("change16 4");
         note = Note.QuarterNote;
     }
 
     IEnumerator ChangeNote2()
     {
         yield return new WaitForSeconds(32);
+        Debug.Log("change32 8");
         note = Note.EighthNote;
     }
     IEnumerator ChangeNote3()
     {
         yield return new WaitForSeconds(40);
+        Debug.Log("change40 4");
         note = Note.QuarterNote;
     }
     IEnumerator ChangeNote4()
     {
         yield return new WaitForSeconds(44);
+        Debug.Log("change44 2");
         note = Note.HalfNote;
     }
     IEnumerator ChangeNote5()
     {
         yield return new WaitForSeconds(50);
+        Debug.Log("change50 4");
         note = Note.QuarterNote;
     }
     IEnumerator ChangeNote6()
     {
         yield return new WaitForSeconds(58);
+        Debug.Log("change58 8");
         note = Note.EighthNote;
     }
 
     IEnumerator ChangeNote2_1()
     {
         yield return new WaitForSeconds(17);
+        Debug.Log("change17 4");
         note = Note.QuarterNote;
     }
 
     IEnumerator ChangeNote2_2()
     {
         yield return new WaitForSeconds(32);
+        Debug.Log("change32 8");
         note = Note.EighthNote;
     }
     IEnumerator ChangeNote2_3()
     {
         yield return new WaitForSeconds(48);
+        Debug.Log("change48 4");
         note = Note.QuarterNote;
     }
     IEnumerator ChangeNote2_4()
     {
         yield return new WaitForSeconds(60);
+        Debug.Log("change60 2");
         note = Note.HalfNote;
     }
     IEnumerator ChangeNote2_5()
     {
         yield return new WaitForSeconds(78);
+        Debug.Log("change78 4");
         note = Note.QuarterNote;
     }
     IEnumerator ChangeNote2_6()
     {
         yield return new WaitForSeconds(85);
+        Debug.Log("change85 2");
         note = Note.HalfNote;
     }
 
     IEnumerator ChangeNote2_7()
     {
         yield return new WaitForSeconds(92);
+        Debug.Log("change92 4");
         note = Note.QuarterNote;
     }
     IEnumerator ChangeNote2_8()
     {
         yield return new WaitForSeconds(108);
+        Debug.Log("change108 8");
         note = Note.EighthNote;
     }
     IEnumerator ChangeNote2_9()
     {
         yield return new WaitForSeconds(124);
+        Debug.Log("change124 2");
         note = Note.HalfNote;
     }
     IEnumerator ChangeNote2_10()
     {
         yield return new WaitForSeconds(139);
+        Debug.Log("change139 4");
         note = Note.QuarterNote;
     }
 

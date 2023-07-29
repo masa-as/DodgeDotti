@@ -1242,6 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da20d2edc5d78804c87d5cd272e71800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AdjustNoteRatio: 2
   audioSource: {fileID: 1027562727}
   note: 2
   bpm: 126
