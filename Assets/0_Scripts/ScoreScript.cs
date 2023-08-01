@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ScoreScript : MonoBehaviour
 {
-
     public static int score;
 
     private void Awake()
@@ -20,7 +19,7 @@ public class ScoreScript : MonoBehaviour
     }
     public void ReducePoint()
     {
-        score = score - 5;
+        score = score - 10;
         GetComponent<Text>().text = "Score:" + score.ToString();
     }
     public void AddPoint(int point)
