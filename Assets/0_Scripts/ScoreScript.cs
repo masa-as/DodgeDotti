@@ -20,7 +20,7 @@ public class ScoreScript : MonoBehaviour
     public void ReducePoint()
     {
         Debug.Log("reduce");
-        score = score - 14;
+        score = score - 19;
         GetComponent<Text>().text = "Score:" + score.ToString();
     }
     public void AddPoint(int point)
