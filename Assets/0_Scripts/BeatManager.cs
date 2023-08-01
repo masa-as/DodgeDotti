@@ -55,6 +55,10 @@ public class BeatManager : MonoBehaviour
             StartCoroutine("ChangeNote2_4");
             StartCoroutine("ChangeNote2_5");
             StartCoroutine("ChangeNote2_6");
+            StartCoroutine("ChangeNote2_7");
+            StartCoroutine("ChangeNote2_8");
+            StartCoroutine("ChangeNote2_9");
+            StartCoroutine("ChangeNote2_10");
 
         }
     }
