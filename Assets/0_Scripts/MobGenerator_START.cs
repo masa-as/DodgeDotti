@@ -35,17 +35,17 @@ public class MobGenerator_START : MonoBehaviour
     {
         //１～表示する画像の数をランダムで算出
         int random = Random.Range(1, mob_list.Count);
-        int rnd = Random.Range(0, 2);
-        float rnd_position = 4.0f;
-        if (rnd == 0)
+        //int rnd = Random.Range(0, 2);
+        float rnd_position = Random.Range(-40.0f, 40.0f);
+        /*if (rnd == 0)
         {
-            rnd_position = Random.Range(-20.0f, -2.0f);
+            rnd_position = Random.Range(-40.0f, 2.0f);
         }
         if (rnd == 1)
         {
-            rnd_position = Random.Range(2.0f, 20.0f);
-        }
-        Instantiate(mob_list[random], new Vector3(rnd_position, 0f, 20.0f), Quaternion.Euler(0f, 220f, 0f));
+            rnd_position = Random.Range(-2.0f, 40.0f);
+        }*/
+        Instantiate(mob_list[random], new Vector3(rnd_position, 0f, 30.0f), Quaternion.Euler(0f, 220f, 0f));
     }
     private void FixedUpdate()
     {
