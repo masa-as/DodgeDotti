@@ -39,19 +39,19 @@ public class GameManager : MonoBehaviour
             playerTransform.y = 0.0f;
             if (rnd_pos == 0)
             {
-                playerTransform.x += 0.4f;
+                playerTransform.x += 0.1f;
             }
             else if (rnd_pos == 1)
             {
-                playerTransform.x -= 0.4f;
+                playerTransform.x -= 0.1f;
             }
             else if (rnd_pos == 2)
             {
-                playerTransform.x += 0.6f;
+                playerTransform.x += 0.4f;
             }
             else if (rnd_pos == 3)
             {
-                playerTransform.x -= 0.6f;
+                playerTransform.x -= 0.4f;
             }
 
             int rnd_model = Random.Range(0, 4);

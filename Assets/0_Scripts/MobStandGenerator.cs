@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using Cysharp.Threading.Tasks;
 
 public class MobStandGenerator : MonoBehaviour
 {
-    private float _repeatSpan = 2;    //繰り返す間隔
+    private float _repeatSpan = 0.5f;    //繰り返す間隔
     private float _timeElapsed;   //経過時間
 
 
@@ -14,8 +15,9 @@ public class MobStandGenerator : MonoBehaviour
     public List<GameObject> mob_list = new List<GameObject>();
 
     // Start is called before the first frame update
-    void Start()
+    async void Start()
     {
+        await UniTask.Delay(3 * 1000);
         read_img(5);
     }
 
@@ -39,13 +41,13 @@ public class MobStandGenerator : MonoBehaviour
         float rnd_position = 4.0f;
         if (rnd == 0)
         {
-            rnd_position = Random.Range(-4.0f, -2.0f);
+            rnd_position = Random.Range(-20.0f, -2.0f);
         }
         if (rnd == 1)
         {
-            rnd_position = Random.Range(2.0f, 4.0f);
+            rnd_position = Random.Range(2.0f, 20.0f);
         }
-        Instantiate(mob_list[random], new Vector3(rnd_position, 0f, 10.0f), Quaternion.Euler(0f, 180f, 0f));
+        Instantiate(mob_list[random], new Vector3(rnd_position, 0f, 20.0f), Quaternion.Euler(0f, 180f, 0f));
     }
     private void FixedUpdate()
     {

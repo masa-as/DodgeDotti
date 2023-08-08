@@ -817,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508258049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   requestFaceTrackingPermissionOnStartup: 0
   requestEyeTrackingPermissionOnStartup: 0
   _localDimming: 1
-  _trackingOriginType: 1
+  _trackingOriginType: 0
   usePositionTracking: 1
   useRotationTracking: 1
   useIPDInPositionTracking: 1
@@ -2348,6 +2348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da20d2edc5d78804c87d5cd272e71800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AdjustNoteRatio: 1.5
   audioSource: {fileID: 1027562727}
   note: 2
   bpm: 126
@@ -2363,7 +2364,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36, type: 2}
   m_audioClip: {fileID: 8300000, guid: 805d97b4ba93633408adea093bc06d83, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3281,7 +3282,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Voice:ttt
+  m_Text: Voice:tt
 --- !u!222 &1766688659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3302,7 +3303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d31a0106bf298948b16012632aee392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voice_left: 3
+  voice_left: 2
 --- !u!43 &1796507944
 Mesh:
   m_ObjectHideFlags: 0

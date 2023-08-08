@@ -1,20 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BeatManager : MonoBehaviour
 {
+    [SerializeField]
+    private float AdjustNoteRatio = 1.5f;
 
     public AudioSource audioSource;
     // public AudioClip beatclip;
     public enum Note
     {
-        //�S����, 2������, ..., 16������
         WholeNote = 1,
         HalfNote = 2,
+        ThirdNote = 3,
         QuarterNote = 4,
+        FifthNote = 5,
+        SixthNote = 6,
+        SeventhNote = 7,
         EighthNote = 8,
+        NinethNote = 9,
+        TenthNote = 10,
+        EleventhNote = 11,
+        TwelfthNote = 12,
         SixteethNote = 16
     }
     public Note note;
@@ -30,7 +40,7 @@ public class BeatManager : MonoBehaviour
         beat_interval = 60.0f / bpm;  // �b�P�ʕϊ�
         foreach (Note _note in System.Enum.GetValues(typeof(Note)))
         {
-            note2interval[_note] = beat_interval / ((float)_note / 4.0f);
+            note2interval[_note] = AdjustNoteRatio * beat_interval / ((float)_note / 4.0f);
         }
     }
 
@@ -55,7 +65,10 @@ public class BeatManager : MonoBehaviour
             StartCoroutine("ChangeNote2_4");
             StartCoroutine("ChangeNote2_5");
             StartCoroutine("ChangeNote2_6");
-
+            StartCoroutine("ChangeNote2_7");
+            StartCoroutine("ChangeNote2_8");
+            StartCoroutine("ChangeNote2_9");
+            StartCoroutine("ChangeNote2_10");
         }
     }
 
