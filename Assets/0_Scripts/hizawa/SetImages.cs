@@ -89,5 +89,10 @@ public class SetImages : MonoBehaviour
             _particlePref4 = Instantiate(_particlePref4);
             _particlePref4.transform.position = EffectPosition;
         }
+
+
+
+
+
     }
 }

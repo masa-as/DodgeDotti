@@ -10,7 +10,9 @@ public class EDManager : MonoBehaviour
     public TextMeshProUGUI scoreCountText;
     public float scorecount = 0.0f;
     public float display_time_sec;
-    public GameObject Score, _Image;
+    public GameObject Score, _Image,
+        //
+        _replay;
 
     [SerializeField] private int DefaultScore = 1000;
     [SerializeField] private float offset = 2.0f; // スコア計算終了後からoffset秒後にイベント起こす
@@ -29,6 +31,9 @@ public class EDManager : MonoBehaviour
     void Start()
     {
         _Image.gameObject.SetActive(false);
+        //
+        _replay.gameObject.SetActive(false);
+        //
         _score = ScoreScript.getScore();
 
         if (num == EDNumber.TochouMae)
@@ -52,6 +57,9 @@ public class EDManager : MonoBehaviour
         }
         yield return new WaitForSeconds(offset);
         _Image.gameObject.SetActive(true);
+        //
+        _replay.gameObject.SetActive(true);
+        //
         _Image.GetComponent<SetImages>().Display();
     }
 
