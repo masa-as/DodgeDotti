@@ -7,7 +7,7 @@ using TMPro;
 
 public class EDManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreCountText;
+    public Text scoreCountText;
     public float scorecount = 0.0f;
     public float display_time_sec;
     public GameObject Score, _Image,
@@ -15,7 +15,7 @@ public class EDManager : MonoBehaviour
         _replay;
 
     [SerializeField] private int DefaultScore = 1000;
-    [SerializeField] private float offset = 2.0f; // ƒXƒRƒAŒvZI—¹Œã‚©‚çoffset•bŒã‚ÉƒCƒxƒ“ƒg‹N‚±‚·
+    [SerializeField] private float offset = 2.0f; // ï¿½Xï¿½Rï¿½Aï¿½vï¿½Zï¿½Iï¿½ï¿½ï¿½ã‚©ï¿½ï¿½offsetï¿½bï¿½ï¿½ÉƒCï¿½xï¿½ï¿½ï¿½gï¿½Nï¿½ï¿½ï¿½ï¿½
 
     private float displayInterval;
     private int _score;
@@ -42,7 +42,7 @@ public class EDManager : MonoBehaviour
         }
         else if (num == EDNumber.TochouUe)
         {
-            displayInterval = (float)_score / display_time_sec * 0.1f; //0.1•b‚¨‚«‚É‰æ–Ê‚É‚Í•\¦
+            displayInterval = (float)_score / display_time_sec * 0.1f; //0.1ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½É‰ï¿½Ê‚É‚Í•\ï¿½ï¿½
             scoreCountText.text = "Score: " + ((int)scorecount).ToString();
             StartCoroutine(IncreaseScore());
         }
