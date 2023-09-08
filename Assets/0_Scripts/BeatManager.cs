@@ -150,6 +150,8 @@ public class BeatManager : MonoBehaviour
     {
         yield return new WaitForSeconds(124);
         note = Note.HalfNote;
+        //note = Note.SixteethNote;
+
     }
     IEnumerator ChangeNote2_10()
     {
